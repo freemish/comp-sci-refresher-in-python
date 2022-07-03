@@ -4,7 +4,7 @@ https://en.wikipedia.org/wiki/Software_design_pattern
 
 - [x] strategy
 - [x] observer
-- [ ] decorator
+- [x] decorator
 - [ ] factory
 - [ ] abstract factory
 - [ ] singleton
