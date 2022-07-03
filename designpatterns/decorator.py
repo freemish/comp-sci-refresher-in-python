@@ -173,3 +173,18 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+"""
+$ python3 designpatterns/decorator.py
+Starting demonstration of decorator pattern.
+Printing the basic names and descriptions of concrete window classes without decorators:
+         Residential Window  |  This window is intended for balancing privacy with the need for light for those inside the building.
+         Shop Window  |  This window is intended for balancing security with enticing consumers to enter and stay inside the building.
+         Candy Emporium Window  |  This window is intended for balancing security with enticing consumers to enter and stay inside the building.
+Decorating a shop window in a scary neighborhood:
+         Scary Shop Window  |  This window is intended for balancing security with enticing consumers to enter and stay inside the building. From inside, there is a stuffed animal propped on the window ledge, angled as though it is waving invitingly. The outside of the window is guarded by imposing vertical iron bars, giving the impression of a formidable prison.
+Describing a cute little apartment window:
+         Winona's Residential Window  |  This window is intended for balancing privacy with the need for light for those inside the building. This window has a small half-peeled sticker on it. Upon peering inside, draped fabric is visible. The fabric is a shade of red. The two halves of fabric are pulled apart to reveal the interior of the room.
+Order of decoration can matter, depending on the operation. For this example, it does matter.
+         Winona's Residential Window  |  This window is intended for balancing privacy with the need for light for those inside the building. Upon peering inside, draped fabric is visible. The fabric is a shade of red. The two halves of fabric are pulled apart to reveal the interior of the room. This window has a small half-peeled sticker on it.
+"""
