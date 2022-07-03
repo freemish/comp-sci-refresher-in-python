@@ -2,15 +2,17 @@
 
 https://en.wikipedia.org/wiki/Software_design_pattern
 
-x strategy
-x observer
-- decorator
-- factory
-- abstract factory
-- singleton
-- command
-- builder
-- adapter
+- [x] strategy
+- [x] observer
+- [ ] decorator
+- [ ] factory
+- [ ] abstract factory
+- [ ] singleton
+- [ ] command
+- [ ] builder
+- [ ] adapter
+
+Others I might do:
 
 - dependency injection
 - lazy initialization
