@@ -35,6 +35,7 @@ class ShopWindow(AbstractWindow):
     """
     The type of window that shops usually have.
     """
+
     def __init__(self, name_of_shop: Optional[str] = None):
         self._name_of_shop = name_of_shop
 
@@ -53,11 +54,11 @@ class CurtainDecorator(AbstractWindow):
     """Decorates any kind of window with fabric curtains."""
 
     def __init__(
-            self,
-            window: AbstractWindow,
-            color: Optional[str] = None,
-            open_status: Optional[bool] = None
-        ):
+        self,
+        window: AbstractWindow,
+        color: Optional[str] = None,
+        open_status: Optional[bool] = None
+    ):
         self._wrapped_window = window
         self._color = color
         self._open_status = open_status
@@ -65,9 +66,10 @@ class CurtainDecorator(AbstractWindow):
     @property
     def name(self) -> str:
         return self._wrapped_window.name
-    
+
     def describe_window(self) -> str:
-        desc = self._wrapped_window.describe_window() + ' Upon peering inside, draped fabric is visible.'
+        desc = self._wrapped_window.describe_window(
+        ) + ' Upon peering inside, draped fabric is visible.'
         if self._color:
             desc += f' The fabric is a shade of {self._color}.'
         if self._open_status is not None:
@@ -81,7 +83,7 @@ class CurtainDecorator(AbstractWindow):
 class IronBarDecorator(AbstractWindow):
     def __init__(self, window: AbstractWindow):
         self._wrapped_window = window
-    
+
     @property
     def name(self) -> str:
         return 'Scary ' + self._wrapped_window.name
@@ -93,11 +95,11 @@ class IronBarDecorator(AbstractWindow):
 class StuffedAnimalPalDecorator(AbstractWindow):
     def __init__(self, window: AbstractWindow):
         self._wrapped_window = window
-    
+
     @property
     def name(self) -> str:
         return self._wrapped_window.name
-    
+
     def describe_window(self) -> str:
         return self._wrapped_window.describe_window() + ' From inside, there is a stuffed animal propped on the window ledge, angled as though it is waving invitingly.'
 
@@ -113,7 +115,7 @@ class DynamicDescriptionDecorator(AbstractWindow):
         if not self._window_owner_name:
             return self._wrapped_window.name
         return "{}'s {}".format(self._window_owner_name, self._wrapped_window.name)
-    
+
     def describe_window(self) -> str:
         return self._wrapped_window.describe_window() + ' ' + self._custom_description
 
@@ -131,7 +133,7 @@ def camelcase_to_spaces(content: str) -> str:
 
 
 def print_window_name_and_desc(w):
-        print('\t', w.name, ' | ', w.describe_window())
+    print('\t', w.name, ' | ', w.describe_window())
 
 
 def main() -> None:
@@ -143,7 +145,11 @@ def main() -> None:
         print_window_name_and_desc(w)
 
     print('Decorating a shop window in a scary neighborhood:')
-    print_window_name_and_desc(IronBarDecorator(StuffedAnimalPalDecorator(ShopWindow())))
+    print_window_name_and_desc(
+        IronBarDecorator(
+            StuffedAnimalPalDecorator(ShopWindow())
+        )
+    )
 
     print('Describing a cute little apartment window:')
     print_window_name_and_desc(
@@ -170,6 +176,7 @@ def main() -> None:
             window_owner_name='Winona',
         )
     )
+
 
 if __name__ == "__main__":
     main()

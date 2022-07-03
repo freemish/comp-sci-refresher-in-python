@@ -7,17 +7,20 @@ class Subscriber:
     def __init__(self, id: str):
         self.inbox = []
         self.id = id
-    
+
     def receive_newsletter(self, headline: str) -> None:
         self.inbox.append(headline)
-        print('ID {} receives newsletter with headline "{}" in inbox.'.format(self.id, headline))
-    
+        print('ID {} receives newsletter with headline "{}" in inbox.'.format(
+            self.id, headline))
+
     def read_most_recent_newsletter_from_inbox(self) -> None:
         try:
             last_headline = self.inbox.pop()
-            print('ID {} reads newsletter with headline: "{}"'.format(self.id, last_headline))
+            print('ID {} reads newsletter with headline: "{}"'.format(
+                self.id, last_headline))
         except IndexError:
-            print('ID {} checked for new headlines, but they had no new newsletters.'.format(self.id))
+            print('ID {} checked for new headlines, but they had no new newsletters.'.format(
+                self.id))
 
 
 class Publisher:
@@ -63,7 +66,8 @@ def main():
 
     print(':Now Nathan joins.')
     publisher.add_subscriber(subscriber2)
-    publisher.send_newsletters('Gadgets prove useless for the 5th quarter this year')
+    publisher.send_newsletters(
+        'Gadgets prove useless for the 5th quarter this year')
 
     print(':Pupper thinks they are subscribed, but they are not.')
     publisher.remove_subscriber(subscriber3.id)
@@ -75,7 +79,8 @@ def main():
     publisher.remove_subscriber(subscriber2.id)
 
     publisher.send_newsletters('Another thing is said')
-    publisher.send_newsletters('The glass is not empty, not full, not even real')
+    publisher.send_newsletters(
+        'The glass is not empty, not full, not even real')
     subscriber2.read_most_recent_newsletter_from_inbox()
     subscriber2.read_most_recent_newsletter_from_inbox()
     subscriber2.read_most_recent_newsletter_from_inbox()
@@ -89,6 +94,7 @@ def main():
     print("Nathan's inbox:", subscriber2.inbox)
     print("Pupper's inbox:", subscriber3.inbox)
     print('Full archive:', publisher.archive)
+
 
 if __name__ == "__main__":
     main()
