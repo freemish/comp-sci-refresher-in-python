@@ -92,3 +92,44 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+"""
+$ python3 designpatterns/observer.py
+Starting demonstration of observer pattern.
+:The publisher publishes their first headline, but no one has subscribed.
+Sending headine: "Hello world"
+:Molly joins the newsletter. This is a list that the publisher worries about, not Molly.
+Added subscriber molly to publisher list.
+Sending headine: "We got our first subscriber wow"
+ID molly receives newsletter with headline "We got our first subscriber wow" in inbox.
+:Inbox: ['We got our first subscriber wow']
+:Now Nathan joins.
+Added subscriber nathan to publisher list.
+Sending headine: "Gadgets prove useless for the 5th quarter this year"
+ID molly receives newsletter with headline "Gadgets prove useless for the 5th quarter this year" in inbox.
+ID nathan receives newsletter with headline "Gadgets prove useless for the 5th quarter this year" in inbox.
+:Pupper thinks they are subscribed, but they are not.
+Tried to remove subscriber with ID pupper, but did not exist.
+ID molly reads newsletter with headline: "Gadgets prove useless for the 5th quarter this year"
+Sending headine: "More news from overseas that makes you cry"
+ID molly receives newsletter with headline "More news from overseas that makes you cry" in inbox.
+ID nathan receives newsletter with headline "More news from overseas that makes you cry" in inbox.
+:Nathan is just not keeping up with his newsletters like he expected to, so he requests to unsubscribe from the publisher.
+Removed subscriber with ID nathan
+Sending headine: "Another thing is said"
+ID molly receives newsletter with headline "Another thing is said" in inbox.
+Sending headine: "The glass is not empty, not full, not even real"
+ID molly receives newsletter with headline "The glass is not empty, not full, not even real" in inbox.
+ID nathan reads newsletter with headline: "More news from overseas that makes you cry"
+ID nathan reads newsletter with headline: "Gadgets prove useless for the 5th quarter this year"
+ID nathan checked for new headlines, but they had no new newsletters.
+:Now Nathan has caught up a bit and resubscribes.
+Added subscriber nathan to publisher list.
+Sending headine: "People return from the dead"
+ID molly receives newsletter with headline "People return from the dead" in inbox.
+ID nathan receives newsletter with headline "People return from the dead" in inbox.
+Molly's inbox: ['We got our first subscriber wow', 'More news from overseas that makes you cry', 'Another thing is said', 'The glass is not empty, not full, not even real', 'People return from the dead']
+Nathan's inbox: ['People return from the dead']
+Pupper's inbox: []
+Full archive: ['Hello world', 'We got our first subscriber wow', 'Gadgets prove useless for the 5th quarter this year', 'More news from overseas that makes you cry', 'Another thing is said', 'The glass is not empty, not full, not even real', 'People return from the dead']
+"""

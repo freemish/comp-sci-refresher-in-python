@@ -91,3 +91,17 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+"""
+$ python3 designpatterns/strategy.py
+Starting strategy pattern demonstration.
+Sally says: "Hello. I am Sally. I am happy to meet you."
+Goober says: "HELLO. I AM GOOBER. RIGHT NOW I SPEAK DIFFERENTLY. NICE TO MEET YOU."
+Now: Sally can be made to talk like Goober.
+Sally says: "NOW I AM SPEAKING LIKE GOOBER."
+Goober says: "thatwasveryweird.ifeeluncomfortable."
+It may be a bit silly to use the strategy pattern in Python when you have the option to pass around functions instead, though.
+Sally says: "Now this one is even a little bit more dynamic, I reckon. PREACH, SISTER."
+Sally says: "See? It doesn't even have to come from a Strategy object. See? It doesn't even have to come from a Strategy object."
+Goober says: "I! can! do! it! too!"
+"""
