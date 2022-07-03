@@ -1,4 +1,4 @@
-"""Demonstration of decorator pattern in Python (not demonstrating the language feature)"""
+"""Demonstration of decorator pattern (not demonstrating the language feature in Python)."""
 
 import abc
 import re
