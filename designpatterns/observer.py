@@ -39,7 +39,7 @@ class Publisher:
             print('Tried to remove subscriber with ID {}, but did not exist.'.format(id))
 
     def send_newsletters(self, headline: str) -> None:
-        print('Sending headine: "{}"'.format(headline))
+        print('Sending headline: "{}"'.format(headline))
         self.archive.append(headline)
         for sub in self.subscribers.values():
             sub.receive_newsletter(headline)
@@ -97,7 +97,7 @@ if __name__ == "__main__":
 $ python3 designpatterns/observer.py
 Starting demonstration of observer pattern.
 :The publisher publishes their first headline, but no one has subscribed.
-Sending headine: "Hello world"
+Sending headline: "Hello world"
 :Molly joins the newsletter. This is a list that the publisher worries about, not Molly.
 Added subscriber molly to publisher list.
 Sending headine: "We got our first subscriber wow"
