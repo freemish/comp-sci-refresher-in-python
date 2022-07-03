@@ -1,9 +1,10 @@
-"""Concrete demonstration of the strategy pattern."""
+"""
+Concrete demonstration of the strategy pattern.
+This example is about a "robotic influencer" swapping different text speech styles for a given statement.
+"""
 
 import abc
 from types import FunctionType
-
-# --- This example is about a "robotic influencer" swapping different text speech styles for a given statement. ---
 
 
 class TextSpeechStrategy(abc.ABC):
@@ -77,7 +78,7 @@ def main():
         sally_robot.speak_via_lambda(
             'Now this one is even a little bit more dynamic, I reckon.',
             PreachSisterSentencesTextSpeechStrategy().get_text_in_text_speech_style)
-    )
+        )
     )
 
     print(sally_robot.narrator_mode(
