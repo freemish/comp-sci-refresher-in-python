@@ -6,8 +6,8 @@ https://en.wikipedia.org/wiki/Software_design_pattern
 - [x] observer
 - [x] decorator
     - [ ] Python-specific function decorators
-- [ ] factory
-- [ ] abstract factory
+- [x] factory method
+- [x] abstract factory
 - [ ] singleton
 - [ ] command
 - [ ] builder
