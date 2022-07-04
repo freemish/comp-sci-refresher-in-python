@@ -2,13 +2,13 @@
 
 https://en.wikipedia.org/wiki/Software_design_pattern
 
-- [x] strategy
-- [x] observer
-- [x] decorator
+- [x] strategy: keeps behavior flexible yet reusable for subclasses
+- [x] observer: has a publisher change state as needed for multiple other subscriber instances with no action needed for the subscriber classes
+- [x] decorator: accrues wrapped changes to a certain class, e.g. adding ingredients to a beverage
     - [ ] Python-specific function decorators
-- [x] factory method
-- [x] abstract factory
-- [x] singleton
+- [x] factory method: an approach of choice for deep if/elif/else methods for creating subclasses/different specific methods to determine more specific behavior rather than defining all of that in one concrete class/method
+- [x] abstract factory: uses multiple factories implementing one interface if one factory method is not sufficient to simplify creation logic
+- [x] singleton: ensures that only a single instance of a certain class is ever used. can be useful for performance improvement or general global state management
 - [ ] command
 - [ ] builder
 - [ ] adapter

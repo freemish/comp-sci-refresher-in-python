@@ -52,6 +52,7 @@ if __name__ == '__main__':
 $ python3 designpatterns/singleton.py
 Demonstration of singleton pattern starting.
 This is the first time we need the expensive startup resource. Once loaded, it should not load again.
+This uses the __new__ builtin Python class method to retain the same instance.
 sleeping...
 class instance access count: 1
 class instance access count: 2
