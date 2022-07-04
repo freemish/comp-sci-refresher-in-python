@@ -8,7 +8,7 @@ https://en.wikipedia.org/wiki/Software_design_pattern
     - [ ] Python-specific function decorators
 - [x] factory method
 - [x] abstract factory
-- [ ] singleton
+- [x] singleton
 - [ ] command
 - [ ] builder
 - [ ] adapter
