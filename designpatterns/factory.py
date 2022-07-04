@@ -10,9 +10,28 @@ class Friend:
     def get_supportive_comment() -> str:
         raise NotImplementedError
 
+
+class AbstractFriendFactory:
+    @abc.abstractclassmethod
+    def get_friend(cls, description: str) -> Friend:
+        raise NotImplementedError
+
+
+class FriendFactory(AbstractFriendFactory):
     @classmethod
-    def get_friend(cls, description: str):
+    def get_friend(cls, description: str) -> Friend:
         return friend_factory_method(description)()
+
+
+class BadFriendFactory(AbstractFriendFactory):
+    @classmethod
+    def get_friend(cls, description: str) -> Friend:
+        return {
+            'happy': SadFriend,
+            'sassy': SweetFriend,
+            'sweet': SassyFriend,
+            'default': SassyFriend,
+        }.get(description, DefaultFriend)()
 
 
 class SassyFriend(Friend):
@@ -48,21 +67,21 @@ def friend_factory_method(description: str) -> Friend:
 
 
 def main():
-    print("Starting demonstration of factory method pattern.")
+    print("Starting demonstration of factory pattern.")
 
     print('Right now, I know I need a sassy friend. But what if the friend I need changes during runtime?')
     friends_i_need = ["sweet", "sassy", "simple", "happy"]
 
-    print('I can use a simple factory method to choose among a bunch of concrete classes like so:\n')
+    print('I can use a simple factory method to choose among a bunch of concrete classes; that method can be on a concrete factory class as well:\n')
     for friend_desc in friends_i_need:
-        friend_class = friend_factory_method(friend_desc)
+        friend_obj = FriendFactory.get_friend(friend_desc)
         print('\tInput: {}\n\tFriend type: {}\n\tComment: {}\n'.format(
-            friend_desc, friend_class.__name__, friend_class().get_supportive_comment()
+            friend_desc, type(friend_obj).__name__, friend_obj.get_supportive_comment()
         ))
 
-    print('I can also get the specific concrete class I need from a method on the abstract base class:\n')
+    print('These could be the results with a different factory class:')
     for friend_desc in friends_i_need:
-        friend_obj = Friend.get_friend(friend_desc)
+        friend_obj = BadFriendFactory.get_friend(friend_desc)
         print('\tInput: {}\n\tFriend type: {}\n\tComment: {}\n'.format(
             friend_desc, type(friend_obj).__name__, friend_obj.get_supportive_comment()
         ))
@@ -75,9 +94,9 @@ if __name__ == '__main__':
 
 """
 $ python3 designpatterns/factory.py
-Starting demonstration of factory method pattern.
+Starting demonstration of factory pattern.
 Right now, I know I need a sassy friend. But what if the friend I need changes during runtime?
-I can use a simple factory method to choose among a bunch of concrete classes like so:
+I can use a simple factory method to choose among a bunch of concrete classes; that method can be on a concrete factory class as well:
 
         Input: sweet
         Friend type: SweetFriend
@@ -95,23 +114,22 @@ I can use a simple factory method to choose among a bunch of concrete classes li
         Friend type: DefaultFriend
         Comment: It's okay, just do your best.
 
-I can also get the specific concrete class I need from a method on the abstract base class:
-
+These could be the results with a different factory class:
         Input: sweet
-        Friend type: SweetFriend
-        Comment: I've known you for a while, and I really think you can do whatever you set your mind to.
-
-        Input: sassy
         Friend type: SassyFriend
         Comment: You *know* you're gonna be just fine - don't mess around with me like that.
+
+        Input: sassy
+        Friend type: SweetFriend
+        Comment: I've known you for a while, and I really think you can do whatever you set your mind to.
 
         Input: simple
         Friend type: DefaultFriend
         Comment: It's okay, just do your best.
 
         Input: happy
-        Friend type: DefaultFriend
-        Comment: It's okay, just do your best.
+        Friend type: SadFriend
+        Comment: I know you're going through a rough patch, but... hey, it can't be as bad as what I just told you about, right? If I can do it, so can you.
 
 But, in general, don't treat people like objects :P
 """
