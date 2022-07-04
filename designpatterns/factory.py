@@ -10,7 +10,7 @@ class Friend:
     def get_supportive_comment() -> str:
         raise NotImplementedError
 
-    @abc.abstractclassmethod
+    @classmethod
     def get_friend(cls, description: str):
         return friend_factory_method(description)()
 
