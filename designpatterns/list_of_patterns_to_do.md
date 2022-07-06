@@ -9,7 +9,7 @@ https://en.wikipedia.org/wiki/Software_design_pattern
 - [x] factory method: an approach of choice for deep if/elif/else methods for creating subclasses/different specific methods to determine more specific behavior rather than defining all of that in one concrete class/method
 - [x] abstract factory: uses multiple factories implementing one interface if one factory method is not sufficient to simplify creation logic
 - [x] singleton: ensures that only a single instance of a certain class is ever used. can be useful for performance improvement or general global state management
-- [ ] command
+- [x] command: method of separating concerns, like UI layer from business logic
 - [ ] builder
 - [ ] adapter
 

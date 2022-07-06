@@ -52,7 +52,11 @@ class ComplexCommand(AbstractCommand):
 class Invoker:
     """
     An Invoker sends requests to one or more commands.
-    There could be multiple different invokers for the same business action.
+    There could be multiple different invokers for the same business action,
+    e.g. a button located in one place and a menu item link in another place.
+
+    Storing the setup/teardown commands (which store their own parameters)
+    allows for replay of commands.
     """
 
     _on_setup = None
