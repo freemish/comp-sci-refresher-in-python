@@ -31,3 +31,12 @@ Others I might do:
 - [ ] module
 - [ ] proxy
 - [ ] twin
+- [ ] iterator
+- [ ] chain of responsibility
+- [ ] iterator
+- [ ] mediator
+- [ ] memento
+- [ ] state
+- [ ] template method
+- [ ] visitor
+
