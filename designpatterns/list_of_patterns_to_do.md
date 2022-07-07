@@ -10,7 +10,7 @@ https://en.wikipedia.org/wiki/Software_design_pattern
 - [x] abstract factory: uses multiple factories implementing one interface if one factory method is not sufficient to simplify creation logic
 - [x] singleton: ensures that only a single instance of a certain class is ever used. can be useful for performance improvement or general global state management
 - [x] command: method of separating concerns, like UI layer from business logic
-- [ ] builder
+- [x] builder: simplifies construction of objects that take in lots of optional parameters in constructor
 - [ ] adapter
 
 Others I might do:
