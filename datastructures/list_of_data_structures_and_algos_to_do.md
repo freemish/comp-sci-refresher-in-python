@@ -6,7 +6,7 @@ https://en.wikipedia.org/wiki/List_of_data_structures#Trees
 - [ ] stack
 - [x] linked list
     - [ ] circular
-    - [ ] doubly-linked
+    - [x] doubly-linked
 - [ ] bst
 - [ ] heap/priority queue
 - [ ] graph
