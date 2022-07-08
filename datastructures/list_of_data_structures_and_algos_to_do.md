@@ -4,7 +4,7 @@ https://en.wikipedia.org/wiki/List_of_data_structures#Trees
 
 - [ ] queue
 - [ ] stack
-- [ ] linked list
+- [x] linked list
     - [ ] circular
     - [ ] doubly-linked
 - [ ] bst
