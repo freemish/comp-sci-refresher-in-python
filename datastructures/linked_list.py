@@ -46,7 +46,7 @@ def create_linked_list(lst: List[Any]) -> Optional[LinkedListNode]:
 
 
 def get_array_from_linked_list(linked_list_head: Optional[LinkedListNode]) -> List[Any]:
-    """Accepts head of singly linked list and outputs values in a list."""
+    """Accepts head of singly linked list and outputs values in a list. TODO: detect if circular."""
     lst = []
     if not linked_list_head:
         return lst
@@ -58,12 +58,23 @@ def get_array_from_linked_list(linked_list_head: Optional[LinkedListNode]) -> Li
 
 
 def main() -> None:
+    print('Starting demo of linked lists...')
     orig_list = ['I', 'am', 'only', 1, 'girl', None]
+    print('original list:', orig_list)
     linked_list_head = create_linked_list(orig_list)
-    print(linked_list_head)
+    print('linked list:', linked_list_head)
     new_list = get_array_from_linked_list(linked_list_head)
-    print(new_list, '--- is equal?', orig_list == new_list)
+    print('list from linked list:', new_list, '\nis equal?', orig_list == new_list)
 
 
 if __name__ == '__main__':
     main()
+
+"""
+$ python3 datastructures/linked_list.py
+Starting demo of linked lists...
+original list: ['I', 'am', 'only', 1, 'girl', None]
+linked list: LinkedListNode(I) -> LinkedListNode(am) -> LinkedListNode(only) -> LinkedListNode(1) -> LinkedListNode(girl) -> LinkedListNode(None) -> None
+list from linked list: ['I', 'am', 'only', 1, 'girl', None] 
+is equal? True
+"""
