@@ -1,7 +1,10 @@
 """Messing around with heaps."""
 
+from typing import List
+
+
 def calculate_parent_index(i: int) -> int:
-    """Returns index of parent."""
+    """Returns index of parent assuming binary heap implemented as array."""
     if i <= 0:
         return 0
 
@@ -10,21 +13,29 @@ def calculate_parent_index(i: int) -> int:
     return i // 2 - 1
 
 
-def calculate_parent_index_long_way(i: int) -> int:
+def calculate_parent_indices_long_way(i: int) -> List[int]:
+    """
+    Accepts length of array to generate.
+    Returns indexes of parent for each index of output array,
+    assuming binary heap implemented as array.
+    """
+    ret = [0]
     if i <= 0:
         return 0
 
     parent_index = 0
     nodes_on_parent_index = 0
 
-    for ci in range(1, i+1):
+    for _ in range(1, i+1):
         if nodes_on_parent_index >= 2:
             parent_index += 1
             nodes_on_parent_index = 1
         else:
             nodes_on_parent_index += 1
         
-    return parent_index
+        ret.append(parent_index)
+
+    return ret
 
 
 def main():
@@ -35,8 +46,9 @@ def main():
 
     i = 500
     shortcut_calc = calculate_parent_index(i)
-    long_calc = calculate_parent_index_long_way(i)
-    print(f'Index: {i}; Short calc: {shortcut_calc}; long calc: {long_calc}; equal? {shortcut_calc == long_calc}')
+    long_calc_arr = calculate_parent_indices_long_way(i)
+    print(f'Index: {i}; Short calc: {shortcut_calc}; long calc: {long_calc_arr[i]}; equal? {shortcut_calc == long_calc_arr[i]}')
+    print(long_calc_arr)
 
 
 if __name__ == '__main__':
