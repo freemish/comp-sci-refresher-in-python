@@ -21,7 +21,7 @@ def calculate_parent_indices_long_way(i: int) -> List[int]:
     """
     ret = [0]
     if i <= 0:
-        return 0
+        return ret
 
     parent_index = 0
     nodes_on_parent_index = 0

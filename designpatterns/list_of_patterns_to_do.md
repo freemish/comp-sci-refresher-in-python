@@ -2,7 +2,7 @@
 
 https://en.wikipedia.org/wiki/Software_design_pattern
 
-- [x] strategy: keeps behavior flexible yet reusable for subclasses
+- [x] strategy: keeps behavior flexible yet reusable for subclasses; imo, in Python, might as well pass functions as objects
 - [x] observer: has a publisher change state as needed for multiple other subscriber instances with no action needed for the subscriber classes
 - [x] decorator: accrues wrapped changes to a certain class, e.g. adding ingredients to a beverage
     - [ ] Python-specific function decorators
