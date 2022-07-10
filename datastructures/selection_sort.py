@@ -1,11 +1,12 @@
 """Demonstrates selection sort."""
 
+from random import randint
 from typing import List
 
 
 def selection_sort(lst: List[int]) -> List[int]:
     print('starting selection sort for input:', lst)
-    for i in range(len(lst)):
+    for i in range(len(lst)-1):
         print('\n\tcurrent list: {}; processing index {} out of {} (value {})...'.format(lst, i, len(lst) - 1, lst[i]))
       
         # find minimum element in lst[i+1:]
@@ -14,7 +15,7 @@ def selection_sort(lst: List[int]) -> List[int]:
             print('\t\tcomparing index {} (value {}) to index {} (value {})...'.format(min_idx, lst[min_idx], j, lst[j]))
             if lst[min_idx] > lst[j]:
                 min_idx = j
-                print('\tsetting index {} as new min index...'.format(j))
+                print('\tsetting index {} (value {}) as new min index...'.format(j, lst[j]))
               
         # swap minimum element with i (could be i itself)
         print('\tswitching indexes {} and {} (values {} and {})...'.format(i, min_idx, lst[i], lst[min_idx]))     
@@ -26,7 +27,8 @@ def selection_sort(lst: List[int]) -> List[int]:
 def main():
     print('Demonstrating selection sort...\n')
 
-    some_random_list = [8, 1, 5, 3, 9, 12, 6, 7, 3, 9]
+    #some_random_list = [8, 1, 5, 3, 9, 12, 6, 7, 3, 9]
+    some_random_list = [randint(1, 20) for _ in range(randint(5, 12))]
     selection_sort_output = selection_sort(list(some_random_list))
     print('\n{}\nSelection sort implemented correctly? {}'.format(selection_sort_output, sorted(some_random_list) == selection_sort_output))
 
