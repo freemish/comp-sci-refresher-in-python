@@ -11,7 +11,7 @@ https://en.wikipedia.org/wiki/Software_design_pattern
 - [x] singleton: ensures that only a single instance of a certain class is ever used. can be useful for performance improvement or general global state management
 - [x] command: method of separating concerns, like UI layer from business logic
 - [x] builder: simplifies construction of objects that take in lots of optional parameters in constructor
-- [ ] adapter
+- [x] adapter: makes a class give data in a format like another existing class
 
 Others I might do:
 
