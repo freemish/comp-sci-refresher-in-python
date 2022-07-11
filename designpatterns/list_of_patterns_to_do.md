@@ -39,4 +39,3 @@ Others I might do:
 - [ ] state
 - [ ] template method
 - [ ] visitor
-
