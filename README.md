@@ -57,7 +57,7 @@ Others I might do:
 
 https://en.wikipedia.org/wiki/List_of_data_structures#Trees
 
-- [ ] queue
+- [x] queue
 - [ ] stack
 - [x] linked list
     - [ ] circular
