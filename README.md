@@ -63,7 +63,7 @@ Behavioral:
 https://en.wikipedia.org/wiki/List_of_data_structures#Trees
 
 - [x] queue
-- [ ] stack
+- [x] stack
 - [x] linked list
     - [ ] circular
     - [x] doubly-linked
