@@ -4,7 +4,7 @@ This example is about a "robotic influencer" swapping different text speech styl
 """
 
 import abc
-from types import FunctionType
+from typing import Callable
 
 
 class TextSpeechStrategy(abc.ABC):
@@ -29,7 +29,7 @@ class RoboticInfluencer:
     def narrator_mode_speak_in_style(self, raw_text: str) -> str:
         return self.narrator_mode(self.speak_in_style(raw_text))
 
-    def speak_via_lambda(self, raw_text: str, text_transform_func: FunctionType) -> str:
+    def speak_via_lambda(self, raw_text: str, text_transform_func: Callable) -> str:
         return text_transform_func(raw_text)
 
 
