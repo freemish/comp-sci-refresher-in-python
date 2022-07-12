@@ -1,6 +1,7 @@
 """Does some worst/best/avg case comparisons of sorting algos."""
 
 from pprint import pprint
+from statistics import mean
 
 from bubble_sort import bubble_sort
 from selection_sort import selection_sort
@@ -11,12 +12,17 @@ def main() -> None:
     print('About to run some operational count comparisons for sorting algos...')
 
     algos_to_outcomes = {}
+    algos = [selection_sort, bubble_sort]
+
     labels_to_examples = {
         'best': [x+1 for x in range(10)],
         'worst': [x for x in range(10, 0, -1)],
         'random': get_random_list(min_len_list=10, max_len_list=10),
     }
-    algos = [selection_sort, bubble_sort]
+    random_ex_to_average = [
+        get_random_list(min_len_list=10, max_len_list=10)
+        for _ in range(100)
+    ]
 
     print('Examples:')
     pprint(labels_to_examples)
@@ -31,6 +37,25 @@ def main() -> None:
                 'index_store_operations': op_counter.get('V', 0),
                 'switch_operations': op_counter.get('W', 0),
             }
+        random_outcomes_to_avg = []
+        for avg_ex in random_ex_to_average:
+            random_outcomes_to_avg.append(get_operations(algo, list(avg_ex)))
+
+        outcomes['avg'] = {
+            'total_op_count': mean(
+                [len(x[0]) for x in random_outcomes_to_avg]
+            ),
+            'index_store_operations': mean(
+                [x[1].get('V', 0) for x in random_outcomes_to_avg]
+            ),
+            'switch_operations': mean(
+                [x[1].get('W', 0) for x in random_outcomes_to_avg]
+            ),
+        }
+        outcomes['avg']['total_minus_index_store'] = (
+            outcomes['avg']['total_op_count']
+            - outcomes['avg']['index_store_operations']
+        )
         algos_to_outcomes[algo.__name__] = outcomes
 
     print('Outcomes:')
