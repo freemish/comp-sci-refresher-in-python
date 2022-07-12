@@ -1,8 +1,6 @@
 # python-refresher
 Self-review of comp-sci concepts I definitely learned in school. Sometimes details get fuzzy, okay?
 
-Right now, I'm planning on going over design patterns, data structures, and algorithms. I might add other things to scope, but not extremely likely.
-
 Each file should be pretty self-contained and I'm going to try not to use any external libraries. That should mean, for example, that you can just call each file like:
 
 ```
@@ -68,7 +66,7 @@ https://en.wikipedia.org/wiki/List_of_data_structures#Trees
     - [ ] circular
     - [x] doubly-linked
 - [ ] bst
-- [~] heap/priority queue
+- [ ] heap/priority queue
 - [ ] graph
 
 ## Algorithms to review
@@ -77,7 +75,7 @@ https://en.wikipedia.org/wiki/List_of_algorithms
 
 - [ ] sorting algorithms (various types)
     - [x] selection sort: swaps min values from right unsorted section to left; left side is fully sorted
-    - [ ] bubble sort
+    - [x] bubble sort: compares neighbors, switching if order is wrong; right side is fully sorted ("bubbled up")
     - [ ] insertion sort
     - [ ] merge sort
     - [ ] quicksort
