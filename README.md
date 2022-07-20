@@ -1,4 +1,4 @@
-# python-refresher
+# comp-sci-refresher-in-python
 Self-review of comp-sci concepts I definitely learned in school. Sometimes details get fuzzy, okay?
 
 Each file should be pretty self-contained and I'm going to try not to use any external libraries. That should mean, for example, that you can just call each file like:
