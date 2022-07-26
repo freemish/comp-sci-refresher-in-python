@@ -94,7 +94,7 @@ print("3. added 1 to 4", result3)
 
 # Next issue to address: the code is not dry. Both functions do the same logic with log concatenation.
 
-def run_with_logs(input_nwl: NumberWithLogs, fnc: Callable) -> NumberWithLogs:
+def run_with_logs(input_nwl: NumberWithLogs, fnc: Callable[[NumberWithLogs], NumberWithLogs]) -> NumberWithLogs:
     num_with_logs = fnc(input_nwl)
     return NumberWithLogs(
         result=num_with_logs.result,
@@ -157,7 +157,7 @@ class NumberWithLogs:
     def __str__(self) -> str:
         return '\n\tresult: {}\n\tlogs: {}'.format(self.result, self.logs)
 
-    def run_transformation(self, transform_func: Callable) -> NumberWithLogs:
+    def run_transformation(self, transform_func: Callable[[NumberWithLogs], NumberWithLogs]) -> NumberWithLogs:
         # Use instead of run_with_logs func
         num_with_logs = transform_func(self)
         return NumberWithLogs(
