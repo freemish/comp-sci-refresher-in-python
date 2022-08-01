@@ -85,10 +85,10 @@ https://en.wikipedia.org/wiki/List_of_algorithms
     - [ ] iterative heapsort
     - [ ] counting sort
 - [ ] binary search
-- [ ] tree traversals
-    - [ ] inorder
-    - [ ] preorder
-    - [ ] postorder
+- [x] tree traversals
+    - [x] inorder
+    - [x] preorder
+    - [x] postorder
 - [ ] breadth first search
 - [ ] depth first search
 - [ ] kruskal minimum spanning tree
