@@ -19,7 +19,7 @@ Creational:
 - [x] abstract factory: uses multiple factories implementing one interface if one factory method is not sufficient to simplify creation logic
 - [x] singleton: ensures that only a single instance of a certain class is ever used. can be useful for performance improvement or general global state management
 - [x] builder: simplifies construction of objects that take in lots of optional parameters in constructor
-- [ ] prototype
+- [x] prototype: simplifies constructing objects via copying existing "prototypes."
 - [ ] dependency injection
 - [ ] lazy initialization
 - [ ] multiton
@@ -65,7 +65,7 @@ https://en.wikipedia.org/wiki/List_of_data_structures#Trees
 - [x] linked list
     - [ ] circular
     - [x] doubly-linked
-- [ ] bst
+- [x] bst
 - [ ] heap/priority queue
 - [ ] graph
 
@@ -85,11 +85,16 @@ https://en.wikipedia.org/wiki/List_of_algorithms
     - [ ] iterative heapsort
     - [ ] counting sort
 - [ ] binary search
+    - [ ] breadth first search
+    - [ ] depth first search
 - [x] tree traversals
     - [x] inorder
     - [x] preorder
     - [x] postorder
-- [ ] breadth first search
-- [ ] depth first search
 - [ ] kruskal minimum spanning tree
 - [ ] dijkstra
+
+## Bonus stuff
+
+- [x] monads
+- [x] closures

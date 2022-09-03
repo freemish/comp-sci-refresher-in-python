@@ -1,6 +1,5 @@
 """Demonstrates adapter pattern."""
 
-from abc import ABC
 from typing import List, Dict
 
 
