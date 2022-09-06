@@ -22,7 +22,7 @@ Creational:
 - [x] prototype: simplifies constructing objects via copying existing "prototypes"
 - [-] dependency injection: objects no longer are responsible for creating dependencies; all dependencies of a class are "injected" (provided as arguments) upon initialization
 - [x] lazy initialization: don't calculate value of an object property until it is accessed
-- [ ] multiton
+- [x] multiton: like the singleton except that it may manage creating multiple instances of the class in certain conditions, like if providing some special argument when initializing
 - [ ] object pool
 - [ ] raii
 
