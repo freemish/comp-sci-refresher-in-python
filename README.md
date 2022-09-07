@@ -44,7 +44,7 @@ Behavioral:
 - [x] strategy: keeps behavior flexible yet reusable for subclasses; imo, in Python, might as well pass functions as objects
 - [x] observer: has a publisher change state as needed for multiple other subscriber instances with no action needed for the subscriber classes
 - [x] command: method of separating concerns, like UI layer from business logic
-- [ ] iterator
+- [x] iterator: encapsulates any specific implementation of iterable (e.g. queue, list, tuple, dict, tree, etc.)
 - [ ] chain of responsibility
 - [ ] iterator
 - [ ] mediator
