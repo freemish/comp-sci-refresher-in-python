@@ -28,7 +28,6 @@ Structural:
 
 - [x] adapter: makes a class give data in a format like another existing class
 - [x] decorator: accrues wrapped changes to a certain class, e.g. adding ingredients to a beverage
-    - [ ] Python-specific function decorators
 - [x] composite: for cases when whether an object is a simple object or is a container for simple objects (composite object), it needs to be treated the same way
 - [x] bridge: separates a portion of a complicated class into a "has-a" relationship to another class
 - [ ] extension object
@@ -96,3 +95,4 @@ https://en.wikipedia.org/wiki/List_of_algorithms
 
 - [x] monads
 - [x] closures
+- [ ] Python-specific function decorators
