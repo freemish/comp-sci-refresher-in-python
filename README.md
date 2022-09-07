@@ -23,7 +23,7 @@ Creational:
 - [-] dependency injection: objects no longer are responsible for creating dependencies; all dependencies of a class are "injected" (provided as arguments) upon initialization
 - [x] lazy initialization: don't calculate value of an object property until it is accessed
 - [x] multiton: like the singleton except that it may manage creating multiple instances of the class in certain conditions, like if providing some special argument when initializing
-- [ ] object pool
+- [x] object pool: initializes a limited number of expensive objects to be loaned out and reused; works well for performance with multiple threads so that no two threads are using the same object at the same time
 - [ ] raii
 
 Structural:
