@@ -1,13 +1,11 @@
 # comp-sci-refresher-in-python
 Self-review of comp-sci concepts I definitely learned in school. Sometimes details get fuzzy, okay?
 
-Each file should be pretty self-contained and I'm going to try not to use any external libraries. That should mean, for example, that you can just call each file like:
+This repository uses no external dependencies other than Python itself. You can run each file like:
 
 ```
 python3 path/to/file.py
 ```
-
-and see something happening.
 
 ## List of patterns to do
 
@@ -31,7 +29,7 @@ Structural:
 - [x] adapter: makes a class give data in a format like another existing class
 - [x] decorator: accrues wrapped changes to a certain class, e.g. adding ingredients to a beverage
     - [ ] Python-specific function decorators
-- [ ] composite
+- [x] composite: for cases when whether an object is a simple object or is a container for simple objects (composite object), it needs to be treated the same way
 - [ ] bridge
 - [ ] extension object
 - [ ] facade
