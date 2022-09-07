@@ -7,6 +7,7 @@ from typing import List, Optional
 
 BASE_BAGEL_COST = Decimal("2.25")
 
+
 class BagelFlavor(Enum):
     SALT = 1
     BLACK_SESAME = 2
@@ -66,5 +67,18 @@ def main() -> None:
     print("Cost of byob everything bagel: {:.2f}".format(BuildYourOwnBagel(everything_flavors).get_cost()))
     print("Cost of special deal everything bagel: {:.2f}".format(SpecialDealBagel(everything_flavors).get_cost()))
 
+
 if __name__ == '__main__':
     main()
+
+
+"""
+$ python3 designpatterns/bridge.py
+Demonstrating bridge design pattern...
+Rather than using a single method to calculate "if has ingredient, add to cost," this separates bagels from the costs of their components.
+
+Cost of plain BuildYourOwnBagel: 2.25
+Cost of plain SpecialDealBagel: 1.75
+Cost of byob everything bagel: 2.60
+Cost of special deal everything bagel: 2.45
+"""
