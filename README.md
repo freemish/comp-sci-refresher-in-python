@@ -30,7 +30,7 @@ Structural:
 - [x] decorator: accrues wrapped changes to a certain class, e.g. adding ingredients to a beverage
     - [ ] Python-specific function decorators
 - [x] composite: for cases when whether an object is a simple object or is a container for simple objects (composite object), it needs to be treated the same way
-- [ ] bridge
+- [x] bridge: separates a portion of a complicated class into a "has-a" relationship to another class
 - [ ] extension object
 - [ ] facade
 - [ ] flyweight
