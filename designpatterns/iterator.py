@@ -60,7 +60,10 @@ class WordsCollection(Iterable):
 def main() -> None:
     print("Demonstrating iterator design pattern...")
 
-    words_collection = WordsCollection(['nathan', 'molly', 'earl', 'lenny', 'sage', 'sophia', 'venus'])
+    original_collection = ['nathan', 'molly', 'earl', 'lenny', 'sage', 'sophia', 'venus']
+    print('Initializing custom collection with the following list:', original_collection)
+
+    words_collection = WordsCollection(original_collection)
     print(words_collection)
     words_collection.set_iter_reverse(True)
     for w in words_collection:
@@ -80,6 +83,7 @@ if __name__ == '__main__':
 """
 $ python3 designpatterns/iterator.py
 Demonstrating iterator design pattern...
+Initializing custom collection with the following list: ['nathan', 'molly', 'earl', 'lenny', 'sage', 'sophia', 'venus']
 WordsCollection<['earl', 'lenny', 'molly', 'nathan', 'sage', 'sophia', 'venus']>
          venus
          sophia
