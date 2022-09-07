@@ -24,7 +24,7 @@ Creational:
 - [x] lazy initialization: don't calculate value of an object property until it is accessed
 - [x] multiton: like the singleton except that it may manage creating multiple instances of the class in certain conditions, like if providing some special argument when initializing
 - [x] object pool: initializes a limited number of expensive objects to be loaned out and reused; works well for performance with multiple threads so that no two threads are using the same object at the same time
-- [ ] raii
+- [-] raii (resource acquisition is initialization): see object pool thread function. The code that locks the resource must include the logic that the lock will be released when execution leaves the scope of the RAII object
 
 Structural:
 
