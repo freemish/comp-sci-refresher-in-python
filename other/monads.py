@@ -181,8 +181,7 @@ class NumberWithLogs:
         )
 
 
-result1_2 = NumberWithLogs(2).run_transformation(
-    square).run_transformation(add_one)
+result1_2 = NumberWithLogs(2).run_transformation(square).run_transformation(add_one)
 print('1.2 with readability modification:', result1_2)
 assert result1.result == result1_2.result
 assert result1.logs == result1_2.logs

@@ -46,7 +46,7 @@ Behavioral:
 - [x] observer: has a publisher change state as needed for multiple other subscriber instances with no action needed for the subscriber classes
 - [x] command: method of separating concerns, like UI layer from business logic
 - [x] iterator: encapsulates any specific implementation of iterable (e.g. queue, list, tuple, dict, tree, etc.)
-- [ ] chain of responsibility
+- [x] chain of responsibility: builds a linked list of handler objects that process a request; handling of the request only needs to be invoked once
 - [ ] mediator
 - [ ] memento
 - [ ] state

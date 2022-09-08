@@ -58,7 +58,7 @@ class WordsCollection(Iterable):
 
 
 def main() -> None:
-    print("Demonstrating iterator design pattern...")
+    print("Demonstrating iterator design pattern (which uses existing Python interfaces)...")
 
     original_collection = ['nathan', 'molly', 'earl', 'lenny', 'sage', 'sophia', 'venus']
     print('Initializing custom collection with the following list:', original_collection)
@@ -82,7 +82,7 @@ if __name__ == '__main__':
 
 """
 $ python3 designpatterns/iterator.py
-Demonstrating iterator design pattern...
+Demonstrating iterator design pattern (which uses existing Python interfaces)...
 Initializing custom collection with the following list: ['nathan', 'molly', 'earl', 'lenny', 'sage', 'sophia', 'venus']
 WordsCollection<['earl', 'lenny', 'molly', 'nathan', 'sage', 'sophia', 'venus']>
          venus
