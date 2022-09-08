@@ -44,18 +44,30 @@ class RepeatExtension(BaseExtension):
 
 
 def main() -> None:
-    print("Demonstrating extension object pattern...")
+    print("Demonstrating extension object pattern (not very different from bridge?)...")
     some_class = JustSomeClassThatDoesStuff('molly')
     print('No extensions render:', some_class.render())
 
     some_class.add_extension('_repeater', RepeatExtension())
     some_class.add_extension('_triple_repeater', RepeatExtension(3))
-    some_class.add_extension('repeater', RepeatExtension(is_auto_active=False))
     print('Some extensions render:', some_class.render())
+
     some_class.get_extension('_triple_repeater').is_auto_active = False
     print('Deactivate one extension temporarily:', some_class.render())
+
+    some_class.add_extension('repeater', RepeatExtension(is_auto_active=False))
     print('Use an on-request extension:', some_class.get_extension('repeater').extend('ad-hoc'))
 
 
 if __name__ == '__main__':
     main()
+
+
+"""
+$ python3 designpatterns/extension_object.py
+Demonstrating extension object pattern (not very different from bridge?)...
+No extensions render: molly
+Some extensions render: mollymollymollymollymollymolly
+Deactivate one extension temporarily: mollymolly
+Use an on-request extension: ad-hocad-hoc
+"""
