@@ -33,7 +33,7 @@ Structural:
 - [x] bridge: separates a portion of a complicated class into a "has-a" relationship to another class
 - [x] extension object: plan for some functionality in an object to be extended dynamically
 - [x] facade: encapsulates more complex logic in one or more classes with multiple methods; provides a convenient interface at the cost of obscuring potential complex uses of subsystems
-- [ ] flyweight
+- [x] flyweight: reuse a few heavyweight objects to generate many unique objects that share those properties
 - [ ] front controller
 - [ ] marker
 - [ ] module
