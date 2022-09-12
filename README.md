@@ -47,7 +47,7 @@ Behavioral:
 - [x] command: method of separating concerns, like UI layer from business logic
 - [x] iterator: encapsulates any specific implementation of iterable (e.g. queue, list, tuple, dict, tree, etc.)
 - [x] chain of responsibility: builds a linked list of handler objects that process a request; handling of the request only needs to be invoked once
-- [ ] mediator
+- [x] mediator: trigger other components of a system without their being tightly coupled to each other (best for when there are many components to manage)
 - [ ] memento
 - [ ] state
 - [ ] template method
