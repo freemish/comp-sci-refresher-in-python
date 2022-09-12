@@ -1,8 +1,13 @@
 # Demonstrates different binary tree traversal strategies.
 
+from enum import Enum
 from typing import Any, List, Optional, Tuple
 
-VALID_TRAVERSAL_TYPES = ["inorder", "preorder", "postorder"]
+
+class TraversalType(Enum):
+	PREORDER = 0
+	INORDER = 1
+	POSTORDER = 2
 
 
 class InvalidTraversalTypeError(Exception):
@@ -29,47 +34,19 @@ def build_bt_from_level_order(level_order_list: List[Any], i: int = 0) -> Option
 		root.right = build_bt_from_level_order(level_order_list, 2 * i + 2)
 		  
 	return root
-	
-
-def build_tree(preorder: List[Any], inorder: List[Any]) -> Node:
-	def array_to_tree(left_index: int, right_index: int) -> Optional[Node]:
-		nonlocal preorder_index
-		# if there are no elements to construct the tree
-		if left_index > right_index:
-			return None
-
-		# select the preorder_index element as the root and increment it
-		root_value = preorder[preorder_index]
-		root = Node(root_value)
-
-		preorder_index += 1
-
-		# build left and right subtree
-		# excluding inorder_index_map[root_value] element because it's the root
-		root.left = array_to_tree(left_index, inorder_index_map[root_value] - 1)
-		root.right = array_to_tree(inorder_index_map[root_value] + 1, right_index)
-
-		return root
-
-	preorder_index = 0
-
-	# build a hashmap to store value -> its index relations
-	inorder_index_map = {}
-	for index, value in enumerate(inorder):
-		inorder_index_map[value] = index
-
-	return array_to_tree(0, len(preorder) - 1)
 
 
-def get_traversed_list(root: Node, traversal_type: str) -> List[Any]:
+def get_traversed_list(root: Node, traversal_type: TraversalType) -> List[Any]:
 	"""
-	Traverses a binary tree. Valid traversal types:
-	["inorder", "preorder", "postorder"].
+	Traverses a binary tree. Valid traversal types: inorder, preorder, postorder.
 	"""
-
-	if traversal_type not in VALID_TRAVERSAL_TYPES:
+	if traversal_type not in list(TraversalType):
 		raise InvalidTraversalTypeError(
-			f'Used invalid traversal type {traversal_type}; should be in {VALID_TRAVERSAL_TYPES}')
+			'Used invalid traversal type {}; should be in list {}'.format(
+				traversal_type,
+				list(TraversalType.__members__.keys())
+			)
+		)
 
 	node_list = []
 	if not root:
@@ -79,9 +56,9 @@ def get_traversed_list(root: Node, traversal_type: str) -> List[Any]:
 	root_list = [root.val]
 	right_list = get_traversed_list(root.right, traversal_type)
 
-	if traversal_type == VALID_TRAVERSAL_TYPES[0]:
+	if traversal_type == TraversalType.INORDER:
 		return left_list + root_list + right_list
-	if traversal_type == VALID_TRAVERSAL_TYPES[1]:
+	if traversal_type == TraversalType.PREORDER:
 		return root_list + left_list + right_list
 	return left_list + right_list + root_list
 
@@ -128,14 +105,14 @@ def get_binary_tree_level_order_from_inorder(val_list: List[Any]) -> List[Any]:
 def main():
 	root = build_bt_from_level_order([x+1 for x in range(10)])
 
-	print('Preorder list:', [x for x in get_traversed_list(root, "preorder")])
-	print('Inorder list:', [x for x in get_traversed_list(root, "inorder")])
-	print('Postorder list:', [x for x in get_traversed_list(root, "postorder")])
+	print('Preorder list:', [x for x in get_traversed_list(root, TraversalType.PREORDER)])
+	print('Inorder list:', [x for x in get_traversed_list(root, TraversalType.INORDER)])
+	print('Postorder list:', [x for x in get_traversed_list(root, TraversalType.POSTORDER)])
 
-	level_order = get_binary_tree_level_order_from_inorder(get_traversed_list(root, "inorder"))
+	level_order = get_binary_tree_level_order_from_inorder(get_traversed_list(root, TraversalType.INORDER))
 	print("Level order:", level_order)
 	recon_bt = build_bt_from_level_order(level_order)
-	print('Preorder list from reconstructed bt:', [x for x in get_traversed_list(recon_bt, "preorder")])
+	print('Preorder list from reconstructed bt:', [x for x in get_traversed_list(recon_bt, TraversalType.PREORDER)])
 
 
 if __name__ == '__main__':
