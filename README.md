@@ -50,7 +50,7 @@ Behavioral:
 - [x] mediator: trigger other components of a system without their being tightly coupled to each other (best for when there are many components to manage)
 - [x] memento: allows creation and restoration of save states
 - [x] state: delegates state-specific branching logic within the context of a complex class to reduce nested if-elses
-- [ ] template method
+- [x] template method: specify a method on a base class that links multiple abstract methods in a desired order; implement abstract methods in subclasses
 - [ ] visitor
 
 ## Data structures to review
