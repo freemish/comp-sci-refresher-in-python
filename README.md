@@ -49,7 +49,7 @@ Behavioral:
 - [x] chain of responsibility: builds a linked list of handler objects that process a request; handling of the request only needs to be invoked once
 - [x] mediator: trigger other components of a system without their being tightly coupled to each other (best for when there are many components to manage)
 - [x] memento: allows creation and restoration of save states
-- [ ] state
+- [x] state: delegates state-specific branching logic within the context of a complex class to reduce nested if-elses
 - [ ] template method
 - [ ] visitor
 
