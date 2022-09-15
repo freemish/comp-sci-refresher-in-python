@@ -72,3 +72,15 @@ def main() -> None:
 
 if __name__ == '__main__':
     main()
+
+
+"""
+$ python3 designpatterns/template_method.py
+Demonstrating template method pattern...
+Running handler for UploadFileServerlessFunction
+Mocking file upload because function is being run for local dev environment
+Running handler for UploadFileServerlessFunction
+Uploading file from parsed event: {'file_key': 'jupiter.jpeg', 'file_data': 'abc123def456'}
+Running handler for ProcessUploadedFileServerlessFunction
+Processing uploaded file: {'file_key': 'jupiter.jpeg', 'file_data': 'abc123def456'}
+"""

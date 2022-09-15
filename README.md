@@ -51,7 +51,7 @@ Behavioral:
 - [x] memento: allows creation and restoration of save states
 - [x] state: delegates state-specific branching logic within the context of a complex class to reduce nested if-elses
 - [x] template method: specify a method on a base class that links multiple abstract methods in a desired order; implement abstract methods in subclasses
-- [ ] visitor
+- [x] visitor: have classes implement a method that accepts a different "visitor" class that contains more specific branching logic in multiple methods
 
 ## Data structures to review
 
