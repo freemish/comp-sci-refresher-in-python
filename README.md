@@ -34,11 +34,7 @@ Structural:
 - [x] extension object: plan for some functionality in an object to be extended dynamically
 - [x] facade: encapsulates more complex logic in one or more classes with multiple methods; provides a convenient interface at the cost of obscuring potential complex uses of subsystems
 - [x] flyweight: reuse a few heavyweight objects to generate many unique objects that share those properties
-- [ ] front controller
-- [ ] marker
-- [ ] module
 - [x] proxy: provide an interface over an existing concrete API class and implement that interface with a proxy class that has an instance of the concrete API class; allows for simplicity of introducing changes to how the API class works or using alternative API classes with minimized code rewrite
-- [ ] twin
 
 Behavioral:
 
@@ -52,6 +48,18 @@ Behavioral:
 - [x] state: delegates state-specific branching logic within the context of a complex class to reduce nested if-elses
 - [x] template method: specify a method on a base class that links multiple abstract methods in a desired order; implement abstract methods in subclasses
 - [x] visitor: have classes implement a method that accepts a different "visitor" class that contains more specific branching logic in multiple methods
+
+Other:
+
+- [ ] front controller
+- [ ] marker
+- [ ] module
+- [ ] data access object
+- [ ] model-view-controller
+- [ ] business delegate
+- [ ] filter
+- [ ] interpreter
+- [ ] service locator
 
 ## Data structures to review
 
