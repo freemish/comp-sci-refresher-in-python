@@ -37,7 +37,7 @@ Structural:
 - [ ] front controller
 - [ ] marker
 - [ ] module
-- [ ] proxy
+- [x] proxy: provide an interface over an existing concrete API class and implement that interface with a proxy class that has an instance of the concrete API class; allows for simplicity of introducing changes to how the API class works or using alternative API classes with minimized code rewrite
 - [ ] twin
 
 Behavioral:
