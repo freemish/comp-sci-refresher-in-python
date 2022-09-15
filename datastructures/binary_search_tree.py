@@ -52,14 +52,11 @@ class BinarySearchTree:
 
     def print_tree(self, current_node: Optional[Node], indent: str = '', last: bool = True):
         if current_node is not None:
-            #sys.stdout.write(indent)
             print(indent, end='')
             if last:
-                #sys.stdout.write("R----")
                 print("R----", end='')
                 indent += "     "
             else:
-                #sys.stdout.write("L----")
                 print("L----", end='')
                 indent += "|    "
             print(current_node.val)
