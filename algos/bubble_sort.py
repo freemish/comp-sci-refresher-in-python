@@ -2,7 +2,7 @@
 
 from typing import List, Optional
 
-from sort_demo_helpers import print_sort_op_results
+from sort_demo_helpers import print_sort_op_results, SortOperationType
 
 
 def bubble_sort(lst: List[int]) -> List[str]:
@@ -10,16 +10,13 @@ def bubble_sort(lst: List[int]) -> List[str]:
     operations = []
     for i in range(len(lst)-1):
         indexes_to_iterate = len(lst)-i-1
-        init_op = '\n\tI: List: {}; Starting iteration {}/{} (from index 0 to {})...'.format(lst, i+1, len(lst)-1, indexes_to_iterate)
-        operations.append(init_op)
+        operations.append('\n' + SortOperationType.INIT.get_sort_operation_str(sort='bubble', lst=lst, i=i, indexes_to_iterate=indexes_to_iterate))
+
         for j in range(0, indexes_to_iterate):
-            comp_op = '\t\tC: Comparing index {} (value {}) to neighbor index {} (value {})...'.format(
-                j, lst[j], j+1, lst[j+1]
-            )
-            operations.append(comp_op)
+            operations.append('\t' + SortOperationType.COMPARE.get_sort_operation_str(sort='bubble', lst=lst, j=j))
+
             if lst[j] > lst[j+1]:
-                switch_op = '\tW: Switching values for indexes {} and {}!'.format(j, j+1)
-                operations.append(switch_op)
+                operations.append(SortOperationType.SWITCH.get_sort_operation_str(lst=lst, i=i, min_idx=j))
                 lst[j], lst[j+1] = lst[j+1], lst[j]
     return operations
 

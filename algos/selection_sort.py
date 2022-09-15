@@ -2,29 +2,26 @@
 
 from typing import List, Optional
 
-from sort_demo_helpers import print_sort_op_results
+from sort_demo_helpers import print_sort_op_results, SortOperationType
 
 
 def selection_sort(lst: List[int]) -> List[str]:
     """Returns a list of operations."""
     operations = []
     for i in range(len(lst)-1):
-        init_op ='\n\tI: List: {}; processing index {} out of {} (value {})...'.format(lst, i, len(lst) - 1, lst[i])
-        operations.append(init_op)
+        operations.append('\n' +SortOperationType.INIT.get_sort_operation_str(lst=lst, i=i))
       
         # find minimum element in lst[i+1:]
         min_idx = i
         for j in range(i+1, len(lst)):
-            comp_op = '\t\tC: Comparing index {} (value {}) to index {} (value {})...'.format(min_idx, lst[min_idx], j, lst[j])
-            operations.append(comp_op)
+            operations.append('\t' + SortOperationType.COMPARE.get_sort_operation_str(lst=lst, min_idx=min_idx, j=j))
+        
             if lst[min_idx] > lst[j]:
                 min_idx = j
-                store_op = '\tV: Setting index {} (value {}) as new min index...'.format(j, lst[j])
-                operations.append(store_op)
+                operations.append(SortOperationType.STORE.get_sort_operation_str(lst=lst, j=j))
               
         # swap minimum element with i (could be i itself)
-        switch_op = '\tW: Switching indexes {} and {} (values {} and {})...'.format(i, min_idx, lst[i], lst[min_idx])
-        operations.append(switch_op)  
+        operations.append(SortOperationType.SWITCH.get_sort_operation_str(lst=lst, min_idx=min_idx, i=i))
         lst[i], lst[min_idx] = lst[min_idx], lst[i]
 
     return operations
