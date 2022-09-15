@@ -82,6 +82,7 @@ https://en.wikipedia.org/wiki/List_of_algorithms
     - [x] selection sort: swaps min values from right unsorted section to left; left side is fully sorted
     - [x] bubble sort: compares neighbors, switching if order is wrong; right side is fully sorted ("bubbled up")
     - [x] insertion sort: iterating rightward, treats left side as fully sorted and inserts unsorted value into sorted list on left
+    - [x] tree sort: done as part of binary search tree demo
     - [ ] merge sort
     - [ ] quicksort
     - [ ] heapsort
@@ -89,7 +90,7 @@ https://en.wikipedia.org/wiki/List_of_algorithms
     - [ ] bucket sort
     - [ ] iterative heapsort
     - [ ] counting sort
-- [ ] binary search
+- [x] binary search
     - [ ] breadth first search
     - [ ] depth first search
 - [x] tree traversals
