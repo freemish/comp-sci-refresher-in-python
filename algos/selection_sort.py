@@ -9,7 +9,7 @@ def selection_sort(lst: List[int]) -> List[str]:
     """Returns a list of operations."""
     operations = []
     for i in range(len(lst)-1):
-        operations.append('\n' +SortOperationType.INIT.get_sort_operation_str(lst=lst, i=i))
+        operations.append('\n' + SortOperationType.INIT.get_sort_operation_str(lst=lst, i=i))
       
         # find minimum element in lst[i+1:]
         min_idx = i

@@ -72,10 +72,12 @@ def print_sort_op_results(fnc: Callable, lst: Optional[List[int]]) -> None:
     if not lst:
         lst = [8, 1, 5, 3, 9, 12, 6, 7, 3, 9]
 
+    original_lst = list(lst)
+
     print('Demonstrating {}...'.format(fnc.__name__))
     operations, operation_buckets = get_operations(fnc, lst)
 
     print('\n'.join(operations))
     print('\nNumber of operations:', len(operations))
     print('Operation counts:', operation_buckets)
-    print('{}\nImplemented correctly? {}'.format(lst, sorted(lst) == lst))
+    print('{}\nImplemented correctly? {}'.format(lst, sorted(original_lst) == lst))
