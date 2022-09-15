@@ -81,7 +81,7 @@ https://en.wikipedia.org/wiki/List_of_algorithms
 - [ ] sorting algorithms (various types)
     - [x] selection sort: swaps min values from right unsorted section to left; left side is fully sorted
     - [x] bubble sort: compares neighbors, switching if order is wrong; right side is fully sorted ("bubbled up")
-    - [ ] insertion sort
+    - [x] insertion sort: iterating rightward, treats left side as fully sorted and inserts unsorted value into sorted list on left
     - [ ] merge sort
     - [ ] quicksort
     - [ ] heapsort
