@@ -1,7 +1,6 @@
 # Demonstrates constructing a binary search tree with an unsorted list, inserting nodes, deleting nodes.
 # Also demonstrates an AVL tree that inherits that functionality and adds automatic balancing.
 
-import sys
 from typing import List, Optional
 
 
