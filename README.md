@@ -71,7 +71,7 @@ https://en.wikipedia.org/wiki/List_of_data_structures#Trees
     - [ ] circular
     - [x] doubly-linked
 - [x] bst
-- [ ] heap/priority queue
+- [x] heap/priority queue
 - [ ] graph
 
 ## Algorithms to review
