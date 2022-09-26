@@ -1,5 +1,6 @@
 import socket
-from typing import Tuple
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from typing import Tuple, Generator
 
 IP = "127.0.0.1"
 PORT = 20001
@@ -14,9 +15,16 @@ def send_udp_packet(msg: str = DEFAULT_MESSAGE) -> Tuple[bytes, Tuple[str, int]]
     return udp_client_socket.recvfrom(BUFFER_SIZE)
 
 
+def spawn_concurrent_udp_packets(num: int = 10) -> Generator:
+    with ThreadPoolExecutor(max_workers=num) as executor:
+        for i in range(num):
+            yield executor.submit(send_udp_packet, str(i))
+
+
 def main() -> None:
     try:
-        print("Full server data packet:", send_udp_packet())
+        for future in as_completed(spawn_concurrent_udp_packets()):
+            print("Full server data packet:", future.result())
     except KeyboardInterrupt:
         pass
 
