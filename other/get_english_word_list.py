@@ -5,8 +5,8 @@ DEFAULT_FILENAME = "other/english.txt"
 ENGLISH_WORDLIST_URL = "https://raw.githubusercontent.com/meetDeveloper/freeDictionaryAPI/master/meta/wordList/english.txt"
 
 
-def get_english_word_list_contents() -> str:
-    with urlopen(ENGLISH_WORDLIST_URL) as data:
+def get_english_word_list_contents_from_url(url: str = ENGLISH_WORDLIST_URL) -> str:
+    with urlopen(url) as data:
         return data.read().decode("utf-8")
 
 
@@ -38,7 +38,7 @@ def main() -> None:
         print("requesting from internet")
         text = "\n".join(
             filter_compound_words_and_phrases(
-                get_english_word_list_contents().split('\n')
+                get_english_word_list_contents_from_url().split('\n')
             )
         )
         write_to_file(text)
