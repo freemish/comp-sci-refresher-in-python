@@ -1,3 +1,6 @@
+# Note that this file requires Python 3.7+.
+# Demonstrates async def.
+
 import asyncio
 
 from get_english_word_list import get_english_word_list_contents_from_url
