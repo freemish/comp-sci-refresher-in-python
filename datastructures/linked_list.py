@@ -12,8 +12,8 @@ class LinkedListNode:
         """Warning: recursive, assumes no circularity!"""
         return 'LinkedListNode({}) -> {}'.format(self.val, str(self.next))
 
-    def is_circular(self) -> bool:
-        """If is circular, returns True."""
+    def has_cycle(self) -> bool:
+        """If has cycle, returns True."""
         visited = []
         node = self
         while node is not None:
@@ -115,9 +115,9 @@ def main() -> None:
     print('is equal to reversed orig list?', orig_list[::-1] == backwards_dlinked_list)
 
     print()
-    print("Is the original linked list circular?", linked_list_head.is_circular())
-    print("Is the doubly-linked list circular?", dlinked_list_head.is_circular())
-    print("Now creating circular singly and doubly linked lists (linked head to tail)...")
+    print("Does the original linked list have a cycle?", linked_list_head.has_cycle())
+    print("Does the doubly-linked list have a cycle?", dlinked_list_head.has_cycle())
+    print("Now creating cyclical singly and doubly linked lists (linked head to tail)...")
     single_head = create_linked_list(orig_list)
     single_tail = get_last_node_in_linked_list(single_head)
     single_tail.next = single_head
@@ -127,10 +127,10 @@ def main() -> None:
     double_head.last = double_tail
     double_tail.next = double_head
 
-    print("singly-linked:", single_head.is_circular())
-    print("(from tail)", single_tail.is_circular())
-    print("doubly-linked:", double_head.is_circular())
-    print("(from tail):", single_tail.is_circular())
+    print("singly-linked:", single_head.has_cycle())
+    print("(from tail)", single_tail.has_cycle())
+    print("doubly-linked:", double_head.has_cycle())
+    print("(from tail):", single_tail.has_cycle())
 
 
 if __name__ == '__main__':
@@ -150,9 +150,9 @@ is equal? True
 backwards list from doubly-linked list: [None, 'girl', 1, 'only', 'am', 'I']
 is equal to reversed orig list? True
 
-Is the original linked list circular? False
-Is the doubly-linked list circular? False
-Now creating circular singly and doubly linked lists (linked head to tail)...
+Does the original linked list have a cycle? False
+Does the doubly-linked list have a cycle? False
+Now creating cyclical singly and doubly linked lists (linked head to tail)...
 singly-linked: True
 (from tail) True
 doubly-linked: True
