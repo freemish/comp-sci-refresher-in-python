@@ -72,7 +72,7 @@ https://en.wikipedia.org/wiki/List_of_data_structures#Trees
     - [x] doubly-linked
 - [x] bst
 - [x] heap/priority queue
-- [ ] graph
+- [x] graph
 
 ## Algorithms to review
 
@@ -91,8 +91,8 @@ https://en.wikipedia.org/wiki/List_of_algorithms
     - [ ] iterative heapsort
     - [ ] counting sort
 - [x] binary search
-    - [ ] breadth first search
-    - [ ] depth first search
+- [ ] breadth first search
+- [ ] depth first search
 - [x] tree traversals
     - [x] inorder
     - [x] preorder
