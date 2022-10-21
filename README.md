@@ -108,3 +108,4 @@ https://en.wikipedia.org/wiki/List_of_algorithms
 - [x] threading; see object pool exercise
 - [x] udp demo
 - [x] english words passphrase generator
+- [x] Python namespace importing
