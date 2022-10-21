@@ -12,8 +12,21 @@ class LinkedListNode:
         """Warning: recursive, assumes no circularity!"""
         return 'LinkedListNode({}) -> {}'.format(self.val, str(self.next))
 
+    def is_circular(self) -> bool:
+        """If is circular, returns True."""
+        visited = []
+        node = self
+        while node is not None:
+            if node in visited:
+                return True
 
-class DoublyLinkedListNode:
+            visited.append(node)
+            node = node.next
+            
+        return False
+
+
+class DoublyLinkedListNode(LinkedListNode):
     def __init__(
         self,
         val: Any = None,
@@ -101,6 +114,24 @@ def main() -> None:
     print('backwards list from doubly-linked list:', backwards_dlinked_list)
     print('is equal to reversed orig list?', orig_list[::-1] == backwards_dlinked_list)
 
+    print()
+    print("Is the original linked list circular?", linked_list_head.is_circular())
+    print("Is the doubly-linked list circular?", dlinked_list_head.is_circular())
+    print("Now creating circular singly and doubly linked lists (linked head to tail)...")
+    single_head = create_linked_list(orig_list)
+    single_tail = get_last_node_in_linked_list(single_head)
+    single_tail.next = single_head
+
+    double_head = create_linked_list(orig_list, doubly_linked=True)
+    double_tail = get_last_node_in_linked_list(double_head)
+    double_head.last = double_tail
+    double_tail.next = double_head
+
+    print("singly-linked:", single_head.is_circular())
+    print("(from tail)", single_tail.is_circular())
+    print("doubly-linked:", double_head.is_circular())
+    print("(from tail):", single_tail.is_circular())
+
 
 if __name__ == '__main__':
     main()
@@ -118,4 +149,12 @@ list from linked list: ['I', 'am', 'only', 1, 'girl', None]
 is equal? True
 backwards list from doubly-linked list: [None, 'girl', 1, 'only', 'am', 'I']
 is equal to reversed orig list? True
+
+Is the original linked list circular? False
+Is the doubly-linked list circular? False
+Now creating circular singly and doubly linked lists (linked head to tail)...
+singly-linked: True
+(from tail) True
+doubly-linked: True
+(from tail): True
 """
