@@ -25,6 +25,23 @@ class LinkedListNode:
             
         return False
 
+    def has_cycle_other(self) -> bool:
+        """
+        If has cycle, return True.
+        Uses more space-efficient solution.
+        """
+        slow_runner = self
+        fast_runner = self
+
+        while slow_runner is not None and fast_runner is not None:
+            slow_runner = slow_runner.next
+            fast_runner = getattr(fast_runner.next, 'next', None)
+
+            if fast_runner is slow_runner:
+                return True
+
+        return False
+
 
 class DoublyLinkedListNode(LinkedListNode):
     def __init__(
@@ -115,8 +132,8 @@ def main() -> None:
     print('is equal to reversed orig list?', orig_list[::-1] == backwards_dlinked_list)
 
     print()
-    print("Does the original linked list have a cycle?", linked_list_head.has_cycle())
-    print("Does the doubly-linked list have a cycle?", dlinked_list_head.has_cycle())
+    print("Does the original linked list have a cycle?", linked_list_head.has_cycle_other())
+    print("Does the doubly-linked list have a cycle?", dlinked_list_head.has_cycle_other())
     print("Now creating cyclical singly and doubly linked lists (linked head to tail)...")
     single_head = create_linked_list(orig_list)
     single_tail = get_last_node_in_linked_list(single_head)
@@ -127,10 +144,10 @@ def main() -> None:
     double_head.last = double_tail
     double_tail.next = double_head
 
-    print("singly-linked:", single_head.has_cycle())
-    print("(from tail)", single_tail.has_cycle())
-    print("doubly-linked:", double_head.has_cycle())
-    print("(from tail):", single_tail.has_cycle())
+    print("singly-linked:", single_head.has_cycle_other())
+    print("(from tail)", single_tail.has_cycle_other())
+    print("doubly-linked:", double_head.has_cycle_other())
+    print("(from tail):", single_tail.has_cycle_other())
 
 
 if __name__ == '__main__':
