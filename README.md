@@ -91,8 +91,8 @@ https://en.wikipedia.org/wiki/List_of_algorithms
     - [ ] iterative heapsort
     - [ ] counting sort
 - [x] binary search
-- [ ] breadth first search
-- [ ] depth first search
+- [x] breadth first search
+- [x] depth first search
 - [x] tree traversals
     - [x] inorder
     - [x] preorder
