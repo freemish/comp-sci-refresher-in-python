@@ -142,4 +142,14 @@ visiting GraphNode <seattle> through helper
 visiting GraphNode <seattle>
 cycle found on GraphNode <pdx>
 Does graph have cycle? True
+Generating a simplified graph dict...
+{'nyc': [], 'la': ['pdx'], 'seattle': ['pdx'], 'pdx': ['seattle'], 'denver': ['nyc', 'la']}
+visiting GraphNode <nyc>
+visiting GraphNode <la>
+visiting GraphNode <pdx> through helper
+visiting GraphNode <pdx>
+visiting GraphNode <seattle> through helper
+visiting GraphNode <seattle>
+cycle found on GraphNode <pdx>
+Does graph generated from simplified representation have a cycle? True
 """
