@@ -1,14 +1,60 @@
 """Demo for directed graphs."""
 
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple, Type
+
+
+class GraphNode:
+    def __init__(self, value: Any, connections: Optional[List['GraphNode']] = None):
+        self.val = value
+        self.connections = connections or []
+        self._graph = None
+
+    def __str__(self) -> str:
+        return "{} <{}>".format(type(self).__name__, self.val)
+
+    def add_to_graph(self, graph: 'Graph') -> None:
+        self._graph = graph
+
+    def add_connection(self, new_connection: 'GraphNode', link_back: bool = False):
+        self.connections.append(new_connection)
+        if link_back:
+            new_connection.add_connection(self)
+        if self._graph:
+            self._graph.add_node(self)
 
 
 class Graph:
-    def __init__(self, nodes: Optional[List['GraphNode']] = None):
+    def __init__(self, nodes: Optional[List['GraphNode']] = None, **kwargs):
         self._nodes: Dict[Any, 'GraphNode'] = {}
         self.directed_vertices: Dict['GraphNode', List['GraphNode']] = {}
         for n in nodes:
             self.add_node(n)
+
+    @classmethod
+    def from_simplified_graph_representation(cls, simplified_graph_repr: Dict[Any, List[Any]]) -> 'Graph':
+        nodes_dict, _ = Graph._setup_from_simplified_graph_representation(simplified_graph_repr)
+        return Graph(list(nodes_dict.values()))
+
+    def get_simplified_graph_representation(self) -> Dict[Any, List[Any]]:
+        """Unpacks GraphNodes into values mapped to list of connections to other values."""
+        graph_dict = {}
+        for vertex, connections in self.directed_vertices.items():
+            graph_dict[vertex.val] = [x.val for x in connections]
+        return graph_dict
+
+    @staticmethod
+    def _setup_from_simplified_graph_representation(
+            graph_dict_repr: Dict[Any, List[Any]],
+            graph_node_class: Type = GraphNode,
+        ) -> Tuple[Dict[Any, 'GraphNode'], Dict['GraphNode', List['GraphNode']]]:
+        nodes_val_to_obj_dict = {}
+        directed_vertices_dict = {}
+        for val, conns in graph_dict_repr.items():
+            node_obj = nodes_val_to_obj_dict.setdefault(val, graph_node_class(val))
+            for conn in conns:
+                node_obj.add_connection(nodes_val_to_obj_dict.setdefault(conn, graph_node_class(conn)))
+            
+        return (nodes_val_to_obj_dict, directed_vertices_dict)
 
     def get_node_by_value(self, value: Any) -> 'GraphNode':
         return self._nodes.get(value)
@@ -47,26 +93,6 @@ class Graph:
         return False
 
 
-class GraphNode:
-    def __init__(self, value: Any, connections: Optional[List['GraphNode']] = None):
-        self.val = value
-        self.connections = connections or []
-        self._graph = None
-
-    def __str__(self) -> str:
-        return "{} <{}>".format(type(self).__name__, self.val)
-
-    def add_to_graph(self, graph: Graph) -> None:
-        self._graph = graph
-
-    def add_connection(self, new_connection: 'GraphNode', link_back: bool = False):
-        self.connections.append(new_connection)
-        if link_back:
-            new_connection.add_connection(self)
-        if self._graph:
-            self._graph.add_node(self)
-
-
 def main() -> None:
     graph_nodes_map = {
         "nyc": GraphNode("nyc"),
@@ -86,6 +112,12 @@ def main() -> None:
 
     graph_nodes_map["seattle"].add_connection(graph_nodes_map["pdx"])
     print("Does graph have cycle?", graph.has_cycle())
+
+    print("Generating a simplified graph dict...")
+    simplified_repr_dict = graph.get_simplified_graph_representation()
+    print(simplified_repr_dict)
+    graph2 = Graph.from_simplified_graph_representation(simplified_repr_dict)
+    print("Does graph generated from simplified representation have a cycle?", graph2.has_cycle())
 
 
 if __name__ == "__main__":
