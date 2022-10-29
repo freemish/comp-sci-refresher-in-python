@@ -38,7 +38,7 @@ class NodeScroller:
 
 def main() -> None:
     graph = {
-        'A' : ['B','C'],
+        'A' : ['B', 'C'],
         'B' : ['D', 'E'],
         'C' : ['F'],
         'D' : [],
