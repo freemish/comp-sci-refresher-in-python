@@ -35,6 +35,7 @@ Structural:
 - [x] facade: encapsulates more complex logic in one or more classes with multiple methods; provides a convenient interface at the cost of obscuring potential complex uses of subsystems
 - [x] flyweight: reuse a few heavyweight objects to generate many unique objects that share those properties
 - [x] proxy: provide an interface over an existing concrete API class and implement that interface with a proxy class that has an instance of the concrete API class; allows for simplicity of introducing changes to how the API class works or using alternative API classes with minimized code rewrite
+- [x] filter: filter through a list of filterable objects with stored filter objects (meh)
 
 Behavioral:
 
@@ -58,7 +59,6 @@ Other:
 - data access object: access to modifying data in a database is only available through one data access object (possible singleton), enforcing separation of concerns as compared to active object, which is a data object that allows database interaction from the data object
 - model-view-controller: architectural pattern that (in Fowler's original take) uses a front controller, passes messages to model objects, and passes the models' responses to views for appropriate display; some frameworks have views managing user input, where for others views are read-only for model data
 - event bus: uses observer pattern to blast a request to many potential handlers; they can pass on handling it or decide to handle it
-- [ ] filter
 - [ ] interpreter
 - [ ] service locator
 - [ ] blackboard
