@@ -98,13 +98,13 @@ https://en.wikipedia.org/wiki/List_of_algorithms
     - [x] preorder
     - [x] postorder
 - [ ] kruskal minimum spanning tree
-- [ ] dijkstra
+- [x] dijkstra
 
 ## Bonus stuff
 
 - [x] monads
 - [x] closures
-- [ ] Python-specific function decorators
+- [x] Python-specific function decorators
 - [x] threading; see object pool exercise
 - [x] udp demo
 - [x] english words passphrase generator
