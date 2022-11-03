@@ -51,7 +51,7 @@ Behavioral:
 
 Other:
 
-- [ ] front controller
+- front controller: fancy kind of mediator; central place that routes multiple different kinds of web requests to correct places
 - [ ] marker
 - [ ] module
 - [ ] data access object
