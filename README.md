@@ -52,9 +52,8 @@ Behavioral:
 Other:
 
 - front controller: fancy kind of mediator; central place that routes multiple different kinds of web requests to correct places
-- marker: empty interface that simply specifies a name for maintainers to know that an object is meant to behave in a certain way
-- [ ] module
-- [ ] data access object
+- marker: empty interface that simply specifies a name for maintainers to know that an object is meant to behave or be used in a certain way
+- data access object: access to modifying data in a database is only available through one data access object (possible singleton), enforcing separation of concerns as compared to active object, which is a data object that allows database interaction from the data object
 - [ ] model-view-controller
 - [ ] business delegate
 - [ ] filter
