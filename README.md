@@ -60,6 +60,9 @@ Other:
 - [ ] interpreter
 - [ ] service locator
 - [ ] blackboard
+- [ ] servant
+- [ ] specification
+- fluent interface: see end of other/monads.py; each method on an object returns a reference to either self or an object of the same type
 
 ## Data structures to review
 
