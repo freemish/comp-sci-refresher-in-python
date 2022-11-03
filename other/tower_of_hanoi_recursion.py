@@ -7,6 +7,13 @@ from typing import Dict, List
 Instruction = namedtuple("Instruction", ["disk_num", "from_rod", "to_rod"])
 
 
+def tower_of_hanoi(number_of_disks: int, from_rod: str, to_rod: str, aux_rod: str, print_debug=True) -> List[Instruction]:
+    args = [number_of_disks, from_rod, to_rod, aux_rod]
+    if not print_debug:
+        args.append(None)
+    return tower_of_hanoi_recursive(*args)
+
+
 def tower_of_hanoi_recursive(n: int, from_rod: str, to_rod: str, aux_rod: str, print_label='from_to_aux') -> List[Instruction]:
     if print_label:
         print("(Processing (label: {}): {} disks, from rod {}, to rod {}, aux rod {})".format(print_label, n, from_rod, to_rod, aux_rod))
@@ -29,11 +36,11 @@ def tower_of_hanoi_recursive(n: int, from_rod: str, to_rod: str, aux_rod: str, p
 
 def main() -> None:
     num_disks = 4
-    stacks = {'a': [x for x in range(num_disks, 0, -1)], 'b': [], 'c': []}
+    stacks = {'a': [x for x in range(num_disks, 0, -1)], 'c': [], 'b': [],}
     print("Stacks: initial setup:", stacks)
     
     print()
-    instructions = tower_of_hanoi_recursive(num_disks, *stacks.keys(), print_label=None)
+    instructions = tower_of_hanoi(num_disks, *stacks.keys())
     
     print()
     for i in instructions:
