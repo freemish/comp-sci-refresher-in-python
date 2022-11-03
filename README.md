@@ -54,11 +54,12 @@ Other:
 - front controller: fancy kind of mediator; central place that routes multiple different kinds of web requests to correct places
 - marker: empty interface that simply specifies a name for maintainers to know that an object is meant to behave or be used in a certain way
 - data access object: access to modifying data in a database is only available through one data access object (possible singleton), enforcing separation of concerns as compared to active object, which is a data object that allows database interaction from the data object
-- [ ] model-view-controller
+- model-view-controller: architectural pattern that (in Fowler's original take) uses a front controller, passes messages to model objects, and passes the models' responses to views for appropriate display; some frameworks have views managing user input, where for others views are read-only for model data
 - [ ] business delegate
 - [ ] filter
 - [ ] interpreter
 - [ ] service locator
+- [ ] blackboard
 
 ## Data structures to review
 
