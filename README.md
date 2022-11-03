@@ -47,7 +47,7 @@ Behavioral:
 - [x] chain of responsibility: builds a linked list of handler objects that process a request; handling of the request only needs to be invoked once
 - [x] mediator: trigger other components of a system without their being tightly coupled to each other (best for when there are many components to manage)
 - [x] memento: allows creation and restoration of save states
-- [ ] servant
+- [x] servant: (see filter implementation) aka helper class for functions related to adjacent classes
 - [x] state: delegates state-specific branching logic within the context of a complex class to reduce nested if-elses
 - [x] template method: specify a method on a base class that links multiple abstract methods in a desired order; implement abstract methods in subclasses
 - [x] visitor: have classes implement a method that accepts a different "visitor" class that contains more specific branching logic in multiple methods

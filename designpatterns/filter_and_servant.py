@@ -40,6 +40,15 @@ class MaleFilter(IFilter):
         return [d for d in filterable_list if 'm' in d.gender.lower()]
 
 
+class FilterServant:
+    @staticmethod
+    def filter_list(filterable_list: List[IFilterable], filters: List[IFilter]) -> List[IFilterable]:
+        result_list = list(filterable_list)
+        for filter in filters:
+            result_list = filter.apply(result_list)
+        return result_list
+
+
 def main() -> None:
     dog_list = [
         Dog("Molly", "German Shepherd", "F"),
@@ -54,8 +63,11 @@ def main() -> None:
     malamutes = MalamuteFilter.apply(dog_list)
     print("Malamute dog list:", [str(x) for x in malamutes])
 
-    males = MaleFilter.apply(malamutes)
-    print("Male malamute dog list:", [str(x) for x in males])
+    males = MaleFilter.apply(dog_list)
+    print("Male dog list:", [str(x) for x in males])
+
+    male_malamutes_from_servant = FilterServant.filter_list(dog_list, [MaleFilter, MalamuteFilter])
+    print("Male malamute dog list from FilterServant:", [str(x) for x in male_malamutes_from_servant])
 
 
 if __name__ == '__main__':
@@ -63,8 +75,9 @@ if __name__ == '__main__':
 
 
 """
-$ python3 designpatterns/filter.py 
+$ python3 designpatterns/filter_and_servant.py 
 Original dog list: ['Dog <name: Molly; breed: German Shepherd; gender: F>', 'Dog <name: Julie; breed: Rottweiler; gender: F>', 'Dog <name: Hank; breed: Golden Retriever; gender: M>', 'Dog <name: Chess; breed: Malamute; gender: M>', 'Dog <name: Tyrian; breed: French Bulldog; gender: M>', 'Dog <name: Angela; breed: Malamute; gender: F>']
 Malamute dog list: ['Dog <name: Chess; breed: Malamute; gender: M>', 'Dog <name: Angela; breed: Malamute; gender: F>']
-Male malamute dog list: ['Dog <name: Chess; breed: Malamute; gender: M>']
+Male dog list: ['Dog <name: Hank; breed: Golden Retriever; gender: M>', 'Dog <name: Chess; breed: Malamute; gender: M>', 'Dog <name: Tyrian; breed: French Bulldog; gender: M>']
+Male malamute dog list from FilterServant: ['Dog <name: Chess; breed: Malamute; gender: M>']
 """
