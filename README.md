@@ -48,6 +48,7 @@ Behavioral:
 - [x] mediator: trigger other components of a system without their being tightly coupled to each other (best for when there are many components to manage)
 - [x] memento: allows creation and restoration of save states
 - [x] servant: (see filter implementation) aka helper class for functions related to adjacent classes
+- [x] specification: allows chaining complex boolean logic in one place without immediately evaluating the expression; allows an expression to be used for multiple different candidates
 - [x] state: delegates state-specific branching logic within the context of a complex class to reduce nested if-elses
 - [x] template method: specify a method on a base class that links multiple abstract methods in a desired order; implement abstract methods in subclasses
 - [x] visitor: have classes implement a method that accepts a different "visitor" class that contains more specific branching logic in multiple methods
@@ -62,7 +63,6 @@ Other:
 - [ ] interpreter
 - [ ] service locator
 - [ ] blackboard
-- [ ] specification
 - fluent interface: see end of other/monads.py; each method on an object returns a reference to either self or an object of the same type
 
 ## Data structures to review
