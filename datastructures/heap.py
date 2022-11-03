@@ -1,7 +1,22 @@
 """Messing around with heaps."""
 
 import sys
-#from heapq import heappush, heappop, heapify
+from heapq import heappush, heappop, heapify
+from typing import List
+
+
+def heapq_demo(lst: List[int]) -> None:
+    print("Received list to turn into min heap:", lst)
+
+    lst_copy = list(lst)
+    heapify(lst_copy)
+    print("Min heap:", lst_copy)
+
+    smallest_item = heappop(lst_copy)
+    print("Smallest item {} popped from list; now {}".format(smallest_item, lst_copy))
+
+    heappush(lst_copy, 1)
+    print("Pushed 1 onto min heap; now:", lst_copy)
 
 
 class MinHeap:
@@ -96,8 +111,14 @@ def main():
 
     min_heap.insert(1)
     min_heap.print_contents()
+    print(min_heap.size)
     min_heap.insert(199)
     min_heap.print_contents()
+    print(min_heap.size)
+
+    print()
+    print("Demonstrating with heapq lib:")
+    heapq_demo(values_to_load)
 
 
 if __name__ == '__main__':
@@ -105,7 +126,7 @@ if __name__ == '__main__':
 
 
 """
-$ python3 datastructures/heap.py
+$ python3 datastructures/heap.py 
 Demonstrating properties of heaps...
 Loading the following values into a min heap: [5, 3, 17, 10, 84, 19, 6, 22, 9] (9 total values)
 Parent: 3; Left child: 5; Right child: 6
@@ -122,4 +143,21 @@ Parent: 6; Left child: 19; Right child: 17
 Parent: 10; Left child: 22; Right child: <No child>
 Underlying array (again, don't tell anyone I accessed this for demo purposes): [-9223372036854775807, 5, 9, 6, 10, 84, 19, 17, 22, 0, 0, 0, 0, 0, 0, 0]
 New heap size: 8
+Parent: 1; Left child: 5; Right child: 6
+Parent: 5; Left child: 9; Right child: 84
+Parent: 6; Left child: 19; Right child: 17
+Parent: 9; Left child: 22; Right child: 10
+9
+Parent: 1; Left child: 5; Right child: 6
+Parent: 5; Left child: 9; Right child: 84
+Parent: 6; Left child: 19; Right child: 17
+Parent: 9; Left child: 22; Right child: 10
+Parent: 84; Left child: 199; Right child: <No child>
+10
+
+Demonstrating with heapq lib:
+Received list to turn into min heap: [5, 3, 17, 10, 84, 19, 6, 22, 9]
+Min heap: [3, 5, 6, 9, 84, 19, 17, 22, 10]
+Smallest item 3 popped from list; now [5, 9, 6, 10, 84, 19, 17, 22]
+Pushed 1 onto min heap; now: [1, 5, 6, 9, 84, 19, 17, 22, 10]
 """
