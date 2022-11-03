@@ -45,6 +45,7 @@ Behavioral:
 - [x] chain of responsibility: builds a linked list of handler objects that process a request; handling of the request only needs to be invoked once
 - [x] mediator: trigger other components of a system without their being tightly coupled to each other (best for when there are many components to manage)
 - [x] memento: allows creation and restoration of save states
+- [ ] servant
 - [x] state: delegates state-specific branching logic within the context of a complex class to reduce nested if-elses
 - [x] template method: specify a method on a base class that links multiple abstract methods in a desired order; implement abstract methods in subclasses
 - [x] visitor: have classes implement a method that accepts a different "visitor" class that contains more specific branching logic in multiple methods
@@ -56,11 +57,11 @@ Other:
 - data access object: access to modifying data in a database is only available through one data access object (possible singleton), enforcing separation of concerns as compared to active object, which is a data object that allows database interaction from the data object
 - model-view-controller: architectural pattern that (in Fowler's original take) uses a front controller, passes messages to model objects, and passes the models' responses to views for appropriate display; some frameworks have views managing user input, where for others views are read-only for model data
 - [ ] business delegate
+- event bus: uses observer pattern to blast a request to many potential handlers; they can pass on handling it or decide to handle it
 - [ ] filter
 - [ ] interpreter
 - [ ] service locator
 - [ ] blackboard
-- [ ] servant
 - [ ] specification
 - fluent interface: see end of other/monads.py; each method on an object returns a reference to either self or an object of the same type
 
