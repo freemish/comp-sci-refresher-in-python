@@ -1,21 +1,20 @@
 """Run a simulation of the Monty Hall problem: https://en.m.wikipedia.org/wiki/Monty_Hall_problem """
 
 from random import randint, Random
-from typing import List, Tuple
+from typing import List
 from contextlib import suppress
 
 NUM_DOORS = 3
-ITERATION_COUNT = 10000
+HOST_REVEAL_COUNT = 1
+ITERATION_COUNT = 100
 
 
-def generate_prize_doors(winning_index: int, num_doors: int = NUM_DOORS) -> List[bool]:
+def generate_prize_doors(winning_index: int, num_doors: int = NUM_DOORS) -> List[str]:
     """
-    Returns a list of "doors."
-    The car (desired outcome) is represented by True
-    and the goats are represented by False.
+    Returns a list of "doors" where there are all goats and one car placed randomly in the list.
     """
-    doors = [False] * num_doors
-    doors[winning_index] = True
+    doors = ['goat'] * num_doors
+    doors[winning_index] = 'car'
     return doors
 
 
@@ -46,13 +45,14 @@ def monty_hall_switch() -> bool:
 
     # given your choice and the host's knowledge of the winner,
     # the host returns an index of a False value
-    goat_door_index = host_door_reveal(winning_index, chosen_door_index, door_indexes)
-    print('revealed door: {}'.format(goat_door_index))
+    goat_door_indexes = []
+    for _ in range(HOST_REVEAL_COUNT):
+        goat_door_indexes.append(host_door_reveal(winning_index, chosen_door_index, door_indexes))
+    print('revealed doors: {}'.format(goat_door_indexes))
 
     # you switch to whatever wasn't the chosen and wasn't the goat door
-    door_indexes.remove(chosen_door_index)
-    door_indexes.remove(goat_door_index)
-    new_index = door_indexes[0]
+    new_index = list(set(door_indexes).difference(goat_door_indexes + [chosen_door_index]))[0]
+    print('final door: {}'.format(new_index))
     return new_index == winning_index
 
 
@@ -63,7 +63,9 @@ def main(iterate_times: int = ITERATION_COUNT) -> None:
         if win:
             win_count += 1
     
-    print('win percent: {}%'.format(win_count / iterate_times))
+    print('win count: {}/{}'.format(win_count, iterate_times))
+    print('win ratio: {}'.format(win_count / iterate_times))
+
 
 if __name__ == '__main__':
     main()
