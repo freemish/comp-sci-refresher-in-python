@@ -1,12 +1,12 @@
 """Run a simulation of the Monty Hall problem: https://en.m.wikipedia.org/wiki/Monty_Hall_problem """
 
-from random import randint, Random
+import time
+from random import randint
 from typing import List
-from contextlib import suppress
 
 NUM_DOORS = 3
 HOST_REVEAL_COUNT = 1
-ITERATION_COUNT = 100
+ITERATION_COUNT = 10000
 
 
 def generate_prize_doors(winning_index: int, num_doors: int = NUM_DOORS) -> List[str]:
@@ -23,11 +23,8 @@ def choose_door(num_doors: int = NUM_DOORS) -> int:
 
 
 def host_door_reveal(winning_index: int, chosen_door_index: int, door_index_choices: List[int]) -> int:
-    copy_choices = list(door_index_choices)
-    copy_choices.remove(winning_index)
-    with suppress(ValueError):
-        copy_choices.remove(chosen_door_index)
-    return Random().choice(copy_choices)
+    choices = list(set(door_index_choices).difference(set([winning_index, chosen_door_index])))
+    return choices[randint(0, len(choices) - 1)]
 
 
 def monty_hall_switch() -> bool:
@@ -57,14 +54,17 @@ def monty_hall_switch() -> bool:
 
 
 def main(iterate_times: int = ITERATION_COUNT) -> None:
+    start_time = time.time()
     win_count = 0
     for _ in range(iterate_times):
         win = monty_hall_switch()
         if win:
             win_count += 1
+    end_time = time.time()
     
     print('win count: {}/{}'.format(win_count, iterate_times))
     print('win ratio: {}'.format(win_count / iterate_times))
+    print('time elapsed (s): {}'.format(end_time - start_time))
 
 
 if __name__ == '__main__':
