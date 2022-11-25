@@ -11,6 +11,9 @@ class SortOperationType(Enum):
     COMPARE = 'C'
     SWITCH = 'W'
     STORE = 'V'
+    COPY_HEAP = 'X'
+    LOAD_HEAP = 'L'
+    POP_HEAP = 'P'
 
     def get_sort_operation_str(self, lst: List[Any], sort: Optional[str] = None, *args, **kwargs) -> str:
         return '{}: {}'.format(self.value, self.get_string_method(sort)(lst, *args, **kwargs))
@@ -21,8 +24,23 @@ class SortOperationType(Enum):
             self.COMPARE: self.operation_compare_desc if not sort else self.operation_compare_bubble_desc,
             self.STORE: self.operation_store_desc,
             self.SWITCH: self.operation_switch_desc,
+            self.COPY_HEAP: self.operation_copy_heap_desc,
+            self.LOAD_HEAP: self.operation_load_heap_desc,
+            self.POP_HEAP: self.operation_pop_heap_desc,
         }
         return enum_to_method.get(self)
+
+    @classmethod
+    def operation_copy_heap_desc(cls, lst: List[Any]) -> str:
+        return 'List: {}; storing copy of list in a heap...'.format(lst)
+
+    @classmethod
+    def operation_load_heap_desc(cls, lst: List[Any]) -> str:
+        return 'List: {}; loading each value into heap (O(N))'.format(lst)
+
+    @classmethod
+    def operation_pop_heap_desc(cls, lst: List[Any], index: int, value: Any, heap: List[Any] = None) -> str:
+        return 'Popped heap; putting index {} as value {}; heap: {}'.format(index, value, heap)
 
     @classmethod
     def operation_init_desc(cls, lst: List[Any], i: int) -> str:

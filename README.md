@@ -89,7 +89,7 @@ https://en.wikipedia.org/wiki/List_of_algorithms
     - [x] tree sort: done as part of binary search tree demo
     - [ ] merge sort
     - [ ] quicksort
-    - [ ] heapsort
+    - [x] heapsort
     - [ ] radix sort
     - [ ] bucket sort
     - [ ] iterative heapsort
@@ -103,6 +103,12 @@ https://en.wikipedia.org/wiki/List_of_algorithms
     - [x] postorder
 - [ ] kruskal minimum spanning tree
 - [x] dijkstra
+- [ ] bellman-ford
+- [ ] a*
+- [ ] euclidian
+- [ ] primality test
+- [ ] k-means
+
 
 ## Bonus stuff
 
