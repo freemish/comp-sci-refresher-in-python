@@ -7,6 +7,7 @@ from bubble_sort import bubble_sort
 from selection_sort import selection_sort
 from insertion_sort import insertion_sort
 from heap_sort import heapsort
+from merge_sort import merge_sort
 from sort_demo_helpers import get_operations, get_random_list
 
 
@@ -14,7 +15,7 @@ def main() -> None:
     print('About to run some operational count comparisons for sorting algos...')
 
     algos_to_outcomes = {}
-    algos = [selection_sort, bubble_sort, insertion_sort, heapsort]
+    algos = [selection_sort, bubble_sort, insertion_sort, heapsort, merge_sort]
 
     labels_to_examples = {
         'best': [x+1 for x in range(10)],

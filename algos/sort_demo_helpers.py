@@ -11,7 +11,7 @@ class SortOperationType(Enum):
     COMPARE = 'C'
     SWITCH = 'W'
     STORE = 'V'
-    COPY_HEAP = 'X'
+    COPY_LIST = 'X'
     LOAD_HEAP = 'L'
     POP_HEAP = 'P'
 
@@ -20,19 +20,27 @@ class SortOperationType(Enum):
 
     def get_string_method(self, sort: Optional[str] = None) -> Callable:
         enum_to_method = {
-            self.INIT: self.operation_init_desc if not sort else self.operation_init_bubble_desc,
-            self.COMPARE: self.operation_compare_desc if not sort else self.operation_compare_bubble_desc,
+            self.INIT: {
+                'selection': self.operation_init_desc,
+                'bubble': self.operation_init_bubble_desc,
+                'merge': self.operation_init_merge_desc,
+            }.get(sort, self.operation_init_desc),
+            self.COMPARE: {
+                'selection': self.operation_compare_desc,
+                'bubble': self.operation_compare_bubble_desc,
+                'merge': self.operation_compare_merge_desc,
+            }.get(sort, self.operation_compare_desc),
             self.STORE: self.operation_store_desc,
             self.SWITCH: self.operation_switch_desc,
-            self.COPY_HEAP: self.operation_copy_heap_desc,
+            self.COPY_LIST: self.operation_copy_list_desc,
             self.LOAD_HEAP: self.operation_load_heap_desc,
             self.POP_HEAP: self.operation_pop_heap_desc,
         }
         return enum_to_method.get(self)
 
     @classmethod
-    def operation_copy_heap_desc(cls, lst: List[Any]) -> str:
-        return 'List: {}; storing copy of list in a heap...'.format(lst)
+    def operation_copy_list_desc(cls, lst: List[Any]) -> str:
+        return 'List: {}; storing copy of list...'.format(lst)
 
     @classmethod
     def operation_load_heap_desc(cls, lst: List[Any]) -> str:
@@ -51,12 +59,20 @@ class SortOperationType(Enum):
         return 'List: {}; Starting iteration {}/{} (from index 0 to {})...'.format(lst, i+1, len(lst)-1, indexes_to_iterate)
 
     @classmethod
+    def operation_init_merge_desc(cls, lst: List[Any]) -> str:
+        return 'Recursively sorting on list: {}'.format(lst)
+
+    @classmethod
     def operation_compare_desc(cls, lst: List[Any], min_idx: int, j: int) -> str:
         return 'Comparing index {} (value {}) to index {} (value {})...'.format(min_idx, lst[min_idx], j, lst[j])
     
     @classmethod
     def operation_compare_bubble_desc(cls, lst: List[Any], j: int) -> str:
         return 'Comparing index {} (value {}) to neighbor index {} (value {})...'.format(j, lst[j], j+1, lst[j+1])
+
+    @classmethod
+    def operation_compare_merge_desc(cls, lst: List[Any], index: int, left_value: Any, right_value: Any) -> str:
+        return f'For index {index} of list {lst}: comparing left value {left_value} to right value {right_value}'
 
     @classmethod
     def operation_switch_desc(cls, lst: List[Any], i: int, min_idx: int) -> str:

@@ -87,9 +87,9 @@ https://en.wikipedia.org/wiki/List_of_algorithms
     - [x] bubble sort: compares neighbors, switching if order is wrong; right side is fully sorted ("bubbled up")
     - [x] insertion sort: iterating rightward, treats left side as fully sorted and inserts unsorted value into sorted list on left
     - [x] tree sort: done as part of binary search tree demo
-    - [ ] merge sort
+    - [X] mergesort: splits recursively into 2 arrays until lengths are 1; orders lists assuming that subarrays are sorted
     - [ ] quicksort
-    - [x] heapsort
+    - [x] heapsort: loads all values into a heap and pops out minimum each time for length of list. O(2N)
     - [ ] radix sort
     - [ ] bucket sort
     - [ ] iterative heapsort

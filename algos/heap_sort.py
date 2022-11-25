@@ -1,16 +1,17 @@
 """Demonstrates heapsort."""
 
-from heapq import heapify, heappop, heappush, heappushpop
+from heapq import heapify, heappop
 from typing import List
 
 from sort_demo_helpers import SortOperationType, print_sort_op_results
+
 
 def heapsort(lst: List[int]) -> List[str]:
     """Returns a list of operations done during heapsort."""
     operations = []
 
     heap = list(lst)
-    operations.append(SortOperationType.COPY_HEAP.get_sort_operation_str(lst))
+    operations.append(SortOperationType.COPY_LIST.get_sort_operation_str(lst))
     heapify(heap)
     for _ in lst:
         operations.append(SortOperationType.LOAD_HEAP.get_sort_operation_str(heap))
