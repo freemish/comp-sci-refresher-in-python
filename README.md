@@ -60,10 +60,11 @@ Other:
 - data access object: access to modifying data in a database is only available through one data access object (possible singleton), enforcing separation of concerns as compared to active object, which is a data object that allows database interaction from the data object
 - model-view-controller: architectural pattern that (in Fowler's original take) uses a front controller, passes messages to model objects, and passes the models' responses to views for appropriate display; some frameworks have views managing user input, where for others views are read-only for model data
 - event bus: uses observer pattern to blast a request to many potential handlers; they can pass on handling it or decide to handle it
+- fluent interface: see end of other/monads.py; each method on an object returns a reference to either self or an object of the same type
+
 - [ ] interpreter
 - [ ] service locator
 - [ ] blackboard
-- fluent interface: see end of other/monads.py; each method on an object returns a reference to either self or an object of the same type
 
 ## Data structures to review
 
