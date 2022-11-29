@@ -106,7 +106,7 @@ https://en.wikipedia.org/wiki/List_of_algorithms
 - [x] dijkstra
 - [ ] bellman-ford
 - [ ] a*
-- [ ] euclidian
+- [x] euclidian: gets greatest common denominator of two integers with a recursive modulo algorithm. if remainder is not 0, recurse on lesser num and remainder
 - [ ] primality test
 - [ ] k-means
 
@@ -120,3 +120,5 @@ https://en.wikipedia.org/wiki/List_of_algorithms
 - [x] udp demo
 - [x] english words passphrase generator
 - [x] Python namespace importing
+- [x] Monty Hall problem demo
+- [x] Tower of Hanoi recursion
