@@ -1,4 +1,4 @@
-"""Demonstrates the vigenere cipher and how to crack it."""
+"""Demonstrates the vigenere cipher and how to decipher it."""
 
 import string
 
@@ -6,24 +6,16 @@ import string
 class VigenereTable:
     _numbered_letters: dict = {letter: ord(letter) - 65 for letter in string.ascii_uppercase}
     _lettered_numbers: dict = {v: k for k, v in _numbered_letters.items()}
-    _calculated_letter_offsets_cache: dict = {}
+
+    @property
+    def total_letters(self) -> int:
+        return len(self._numbered_letters)
 
     def get_number_of_letter(self, letter: str) -> int | None:
         return self._numbered_letters.get(letter.upper())
 
     def get_letter_of_number(self, num: int) -> str | None:
         return self._lettered_numbers.get(num)
-
-    def get_alphabet_offset_for_letter(self, letter: str) -> str | None:
-        letter_list = self._calculated_letter_offsets_cache.get(letter.upper())
-        if letter_list is not None:
-            return letter_list
-
-        letter_num = self.get_number_of_letter(letter)
-        letter_list = string.ascii_uppercase[letter_num:] + string.ascii_uppercase[:letter_num]
-
-        self._calculated_letter_offsets_cache[letter.upper()] = letter_list
-        return letter_list
 
 
 def encipher_message(message: str, key: str, keep_nonalpha: bool = True) -> str:
@@ -43,8 +35,9 @@ def encipher_message(message: str, key: str, keep_nonalpha: bool = True) -> str:
             enciphered_message += mc
             continue
 
-        key_offset_array = vigenere_table.get_alphabet_offset_for_letter(key[mi % len(key)])
-        enciphered_message += key_offset_array[mc_number]
+        key_number = vigenere_table.get_number_of_letter(key[mi % len(key)])
+        enciphered_message += vigenere_table.get_letter_of_number(
+            (mc_number + key_number - vigenere_table.total_letters) % vigenere_table.total_letters)
 
     return enciphered_message
 
@@ -62,7 +55,8 @@ def decipher_message(enciphered_message: str, key: str) -> str:
             continue
 
         key_num = vigenere_table.get_number_of_letter(key[ei % len(key)])
-        deciphered_message += vigenere_table.get_letter_of_number((ec_number - key_num) % 26)
+        deciphered_message += vigenere_table.get_letter_of_number(
+            (ec_number - key_num) % vigenere_table.total_letters)
 
     return deciphered_message
 
