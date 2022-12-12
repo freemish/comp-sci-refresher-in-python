@@ -12,7 +12,7 @@ python3 path/to/file.py
 
 https://en.wikipedia.org/wiki/Software_design_pattern
 
-Creational:
+### Creational:
 
 - [x] factory method: an approach of choice for deep if/elif/else methods for creating subclasses/different specific methods to determine more specific behavior rather than defining all of that in one concrete class/method
 - [x] abstract factory: uses multiple factories implementing one interface if one factory method is not sufficient to simplify creation logic
@@ -25,7 +25,7 @@ Creational:
 - [x] object pool: initializes a limited number of expensive objects to be loaned out and reused; works well for performance with multiple threads so that no two threads are using the same object at the same time
 - [x] raii (resource acquisition is initialization): see object pool thread function; the code that locks the resource must include the logic that the lock will be released when execution leaves the scope of the RAII object
 
-Structural:
+### Structural:
 
 - [x] adapter: makes a class give data in a format like another existing class
 - [x] decorator: accrues wrapped changes to a certain class, e.g. adding ingredients to a beverage
@@ -37,7 +37,7 @@ Structural:
 - [x] proxy: provide an interface over an existing concrete API class and implement that interface with a proxy class that has an instance of the concrete API class; allows for simplicity of introducing changes to how the API class works or using alternative API classes with minimized code rewrite
 - [x] filter: filter through a list of filterable objects with stored filter objects (meh)
 
-Behavioral:
+### Behavioral:
 
 - [x] strategy: keeps behavior flexible yet reusable for subclasses; imo, in Python, might as well pass functions as objects
 - [x] observer: has a publisher change state as needed for multiple other subscriber instances with no action needed for the subscriber classes
@@ -53,7 +53,7 @@ Behavioral:
 - [x] template method: specify a method on a base class that links multiple abstract methods in a desired order; implement abstract methods in subclasses
 - [x] visitor: have classes implement a method that accepts a different "visitor" class that contains more specific branching logic in multiple methods
 
-Other:
+### Other:
 
 - front controller: fancy kind of mediator; central place that routes multiple different kinds of web requests to correct places
 - marker: empty interface that simply specifies a name for maintainers to know that an object is meant to behave or be used in a certain way
@@ -89,7 +89,7 @@ https://en.wikipedia.org/wiki/List_of_algorithms
     - [x] insertion sort: iterating rightward, treats left side as fully sorted and inserts unsorted value into sorted list on left
     - [x] tree sort: done as part of binary search tree demo
     - [X] mergesort: splits recursively into 2 arrays until lengths are 1; orders lists assuming that subarrays are sorted
-    - [ ] quicksort
+    - [x] quicksort: splits recursively by a pivot value, bubbling values greater than the pivot past the pivot index
     - [x] heapsort: loads all values into a heap and pops out minimum each time for length of list. O(2N)
     - [ ] radix sort
     - [ ] bucket sort
@@ -109,7 +109,6 @@ https://en.wikipedia.org/wiki/List_of_algorithms
 - [x] euclidian: gets greatest common denominator of two integers with a recursive modulo algorithm. if remainder is not 0, recurse on lesser num and remainder
 - [ ] primality test
 - [ ] k-means
-
 
 ## Bonus stuff
 

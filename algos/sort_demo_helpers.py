@@ -102,7 +102,10 @@ def get_operations(fnc: Callable, lst: List[int]) -> Tuple[List[str], Counter]:
     return (operations, operation_buckets)
 
 
-def print_sort_op_results(fnc: Callable, lst: Optional[List[int]]) -> None:
+def print_sort_op_results(fnc: Callable, lst: Optional[List[int]] = None) -> None:
+    """
+    If not lst, uses a default list for demonstration.
+    """
     if not lst:
         lst = [8, 1, 5, 3, 9, 12, 6, 7, 3, 9]
 
